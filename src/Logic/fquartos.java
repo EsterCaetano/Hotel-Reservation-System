@@ -5,7 +5,9 @@
  */
 package Logic;
 
+import Data.vquartos;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -53,4 +55,66 @@ public class fquartos {
         return null;
     }
     }
+    
+    //Metodo para inserir dados no BD
+    public boolean inserir (vquartos dts){
+        sSQL = "insert into tb_quartos (numero, andar, descricao, caracteristicas, preco_diaria, estado, tipo_quarto)" +
+                "values(?,?,?,?,?,?,?)";
+        
+        try {
+            
+            PreparedStatement pst=cn.prepareStatement(sSQL);
+            pst.setString(1, dts.getNumber());
+            pst.setString(2, dts.getWalk());
+            pst.setString(3, dts.getDescrition());
+            pst.setString(4, dts.getcharacteristics());
+            pst.setDouble(5, dts.getDailyValue());
+            pst.setString(6, dts.getState());
+            pst.setString(7, dts.getRoomType());
+            
+            int n=pst.executeUpdate();
+            if (n!=0){
+                return true;
+            }else{
+                return false;
+            }
+            
+        }catch (Exception e){
+             JOptionPane.showConfirmDialog(null, e);
+             return false;
+        }
+    }
+    
+    
+    //Metodo para editar dados no BD
+    public boolean editar (vquartos dts){
+        
+        sSQL="update tb_rooms set number=?, walk=?, descrition=?, characteristics=?, dailyValue=?, state=?, roomType=?" +
+                "where id_quartos=?";
+        
+               
+        try {
+            PreparedStatement pst=cn.prepareStatement(sSQL);
+            pst.setString(1, dts.getNumber());
+            pst.setString(2, dts.getWalk());
+            pst.setString(3, dts.getDescrition());
+            pst.setString(4, dts.getcharacteristics());
+            pst.setDouble(5, dts.getDailyValue());
+            pst.setString(6, dts.getState());
+            pst.setString(7, dts.getRoomType());
+            pst.setInt(8, dts.getIdquartos());
+            
+             int n=pst.executeUpdate();
+            if (n!=0){
+                return true;
+            }else{
+                return false;
+            }
+            
+        }catch (Exception e){
+             JOptionPane.showConfirmDialog(null, e);
+         return false;
+        }
+    }
 }
+

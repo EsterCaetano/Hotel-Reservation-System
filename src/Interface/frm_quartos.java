@@ -493,19 +493,19 @@ public class frm_quartos extends javax.swing.JInternalFrame {
            vquartos dts = new vquartos();
            fquartos func = new fquartos();
            
-          dts.setNumero(txt_numero.getText()); 
-          dts.setValordiaria(Double.parseDouble(txt_valor.getText())); 
-          dts.setDescricao(txt_descricao.getText()); 
-          dts.setCaracteristicas(txt_carac.getText()); 
+          dts.setNumber(txt_numero.getText()); 
+          dts.setDailyValue(Double.parseDouble(txt_valor.getText())); 
+          dts.setDescrition(txt_descricao.getText()); 
+          dts.setCharacteristics(txt_carac.getText()); 
           
           int selecionado = CB_andar.getSelectedIndex();
-          dts.setAndar((String) CB_andar.getItemAt(selecionado));
+          dts.setWalk((String) CB_andar.getItemAt(selecionado));
           
            selecionado = CB_estado.getSelectedIndex();
-          dts.setEstado((String) CB_estado.getItemAt(selecionado));
+          dts.setState((String) CB_estado.getItemAt(selecionado));
           
            selecionado = CB_tipo.getSelectedIndex();
-          dts.setTipoquarto((String) CB_tipo.getItemAt(selecionado));
+          dts.setRoomType((String) CB_tipo.getItemAt(selecionado));
           
           if(acao.equals("salvar")){
               if(func.inserir(dts)){
@@ -588,7 +588,7 @@ public class frm_quartos extends javax.swing.JInternalFrame {
        limpar();
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
-    private Connection connection=new conexao().conectar();
+    private final Connection connection=new conexao().conectar();
     
     private void btn_relatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_relatorioActionPerformed
       Map p=new HashMap();

@@ -5,6 +5,11 @@
  */
 package Interface;
 
+import Data.vquartos;
+import Logic.fquartos;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ester
@@ -18,6 +23,76 @@ public class frm_quartos extends javax.swing.JFrame {
         initComponents();
     }
 
+    private String acao="save";
+    //Metodo para ocultar coluna
+    void ocultar_coluna(){
+        TB_lista.getColumnModel().getColumn(0).setMaxWidth(0);  // não terá largura maxima
+        TB_lista.getColumnModel().getColumn(0).setMinWidth(0); // não terá largura minima
+        TB_lista.getColumnModel().getColumn(0).setPreferredWidth(0);    // não terá nenhum paramentro relacionado com coluna
+    } 
+    
+    //Metodo para desativar os campos
+     void desativar(){
+       txt_id_quarto.setVisible(false);
+       CB_andar.setVisible(false);
+       txt_numero.setVisible(false);
+       txt_valor.setVisible(false);
+       txt_descricao.setVisible(false);
+       txt_carac.setVisible(false);
+       CB_estado.setVisible(false);
+       CB_tipo.setVisible(false);
+       
+       //desativar os botons
+       btn_salvar.setEnabled(false);
+       btn_novo.setEnabled(false);
+       btn_cancelar.setEnabled(false);
+       
+       //Limpar os campos
+       txt_id_quarto.setText("");
+       txt_valor.setText("");
+       txt_descricao.setText("");
+       txt_carac.setText("");
+            
+     } 
+     
+     //Metodo para ativar
+     void ativar(){
+       txt_id_quarto.setVisible(true);
+       CB_andar.setVisible(true);
+       txt_numero.setVisible(true);
+       txt_valor.setVisible(true);
+       txt_descricao.setVisible(true);
+       txt_carac.setVisible(true);
+       CB_estado.setVisible(true);
+       CB_tipo.setVisible(true);
+       
+       //desativar os botons
+       btn_salvar.setEnabled(true);
+       btn_novo.setEnabled(true);
+       btn_cancelar.setEnabled(true);
+       
+       //Limpar os campos
+       txt_id_quarto.setText("");
+       txt_valor.setText("");
+       txt_descricao.setText("");
+       txt_carac.setText("");
+            
+     }
+     
+     //Metodo Busca
+     void mostrar(String buscar){
+       try{
+           DefaultTableModel modelo;
+           fquartos func=new fquartos();
+           modelo = func.mostrar(buscar);
+           TB_lista.setModel(modelo);
+           ocultar_coluna();
+           LB_registros.setText("Total Registros" + Integer.toString(func.totalregistros) );
+           
+       }catch (Exception e){
+          JOptionPane.showConfirmDialog(null, e); 
+       }  
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,6 +125,7 @@ public class frm_quartos extends javax.swing.JFrame {
         btn_novo = new javax.swing.JButton();
         btn_salvar = new javax.swing.JButton();
         btn_cancelar = new javax.swing.JButton();
+        txt_id_quarto = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -150,14 +226,6 @@ public class frm_quartos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CB_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
                             .addComponent(jLabel3)
@@ -179,7 +247,16 @@ public class frm_quartos extends javax.swing.JFrame {
                             .addComponent(jScrollPane1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CB_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txt_id_quarto, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -194,7 +271,9 @@ public class frm_quartos extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txt_id_quarto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -352,11 +431,47 @@ public class frm_quartos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
-        // TODO add your handling code here:
+       ativar();
+       btn_salvar.setText("Salvar");
+       acao="salvar";
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-        // TODO add your handling code here:
+        if(txt_numero.getText().length() == 0){
+            JOptionPane.showConfirmDialog(rootPane, "Insira o numero do quarto");
+            txt_numero.requestFocus();
+            return;
+        }
+        
+        if(txt_descricao.getText().length() == 0){
+            JOptionPane.showConfirmDialog(rootPane, "Insira uma descrição para o quarto");
+            txt_descricao.requestFocus();
+            return;
+        }
+        
+        if(txt_carac.getText().length() == 0){
+            JOptionPane.showConfirmDialog(rootPane, "Insira uma careteristica para o quarto");
+            txt_carac.requestFocus();
+            return;
+        }
+        
+        if(txt_valor.getText().length() == 0){
+            JOptionPane.showConfirmDialog(rootPane, "Insira o valor da diaria");
+            txt_valor.requestFocus();
+            return;
+        }
+        
+        vquartos dts = new vquartos();
+        fquartos func = new fquartos();
+        
+        dts.setNumber(txt_numero.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.
+//        dts.setDailyValue(txt_valor.getText());
+//        dts.setDescrition(txt_descricao.getText());
+//        dts.setCharacteristics(txt_carac.getText());
+//        
+//        int selecionado = CB_andar.getSelectedIndex();
+//        
+        
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
@@ -447,6 +562,7 @@ public class frm_quartos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea txt_carac;
     private javax.swing.JTextArea txt_descricao;
+    private javax.swing.JTextField txt_id_quarto;
     private javax.swing.JTextField txt_numero;
     private javax.swing.JTextField txt_pesquisar;
     private javax.swing.JTextField txt_valor;

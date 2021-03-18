@@ -21,6 +21,8 @@ public class frm_quartos extends javax.swing.JFrame {
      */
     public frm_quartos() {
         initComponents();
+        desativar();
+       
     }
 
     private String acao="save";
@@ -34,7 +36,7 @@ public class frm_quartos extends javax.swing.JFrame {
     //Metodo para desativar os campos
      void desativar(){
        txt_id_quarto.setVisible(false);
-       CB_andar.setVisible(false);
+       andar.setVisible(false);
        txt_numero.setVisible(false);
        txt_valor.setVisible(false);
        txt_descricao.setVisible(false);
@@ -44,7 +46,7 @@ public class frm_quartos extends javax.swing.JFrame {
        
        //desativar os botons
        btn_salvar.setEnabled(false);
-       btn_novo.setEnabled(false);
+       //btn_novo.setEnabled(false);
        btn_cancelar.setEnabled(false);
        
        //Limpar os campos
@@ -58,7 +60,7 @@ public class frm_quartos extends javax.swing.JFrame {
      //Metodo para ativar
      void ativar(){
        txt_id_quarto.setVisible(true);
-       CB_andar.setVisible(true);
+       andar.setVisible(true);
        txt_numero.setVisible(true);
        txt_valor.setVisible(true);
        txt_descricao.setVisible(true);
@@ -108,8 +110,8 @@ public class frm_quartos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txt_numero = new javax.swing.JTextField();
-        CB_andar = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        andar = new javax.swing.JLabel();
+        CB_andar = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -167,15 +169,32 @@ public class frm_quartos extends javax.swing.JFrame {
 
         jLabel3.setText("Number");
 
-        CB_andar.setText("Walk");
+        txt_numero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_numeroActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
+        andar.setText("Walk");
+
+        CB_andar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
+        CB_andar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_andarActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Description");
 
         jLabel6.setText("Characteristics");
 
         jLabel7.setText("Daily Value");
+
+        txt_valor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_valorActionPerformed(evt);
+            }
+        });
 
         txt_descricao.setColumns(20);
         txt_descricao.setRows(5);
@@ -190,8 +209,18 @@ public class frm_quartos extends javax.swing.JFrame {
         jLabel9.setText("state");
 
         CB_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponível", "Ocupado", "Manutenção" }));
+        CB_estado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_estadoActionPerformed(evt);
+            }
+        });
 
         CB_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Individual", "Familia", "Presidencial" }));
+        CB_tipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CB_tipoActionPerformed(evt);
+            }
+        });
 
         btn_novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/novo.GIF"))); // NOI18N
         btn_novo.setText("New");
@@ -241,9 +270,9 @@ public class frm_quartos extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CB_andar)
+                                .addComponent(andar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(CB_andar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,8 +308,8 @@ public class frm_quartos extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(CB_andar)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(andar)
+                        .addComponent(CB_andar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -290,11 +319,12 @@ public class frm_quartos extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CB_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -321,6 +351,11 @@ public class frm_quartos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TB_lista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TB_listaMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(TB_lista);
 
         jLabel10.setText("Search");
@@ -465,12 +500,37 @@ public class frm_quartos extends javax.swing.JFrame {
         fquartos func = new fquartos();
         
         dts.setNumber(txt_numero.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.
-//        dts.setDailyValue(txt_valor.getText());
-//        dts.setDescrition(txt_descricao.getText());
-//        dts.setCharacteristics(txt_carac.getText());
-//        
-//        int selecionado = CB_andar.getSelectedIndex();
-//        
+        dts.setDailyValue(Double.parseDouble(txt_valor.getText()));
+        dts.setDescrition(txt_descricao.getText());
+        dts.setCharacteristics(txt_carac.getText());
+        
+        int selecionado = CB_andar.getSelectedIndex();
+        dts.setWalk((String) CB_andar.getItemAt(selecionado));
+        
+        selecionado = CB_estado.getSelectedIndex();
+        dts.setState((String) CB_estado.getItemAt(selecionado));
+        
+        selecionado = CB_tipo.getSelectedIndex();
+        dts.setRoomType((String) CB_tipo.getItemAt(selecionado));
+        
+        
+        //Verificar acção se é de guardar, editat ou de excluir
+        if(acao.equals("Salvar")){
+           if(func.inserir(dts)) {
+               JOptionPane.showConfirmDialog(rootPane, "O quarto foi regristado com sucesso!");
+               mostrar("");     //mostra os dados salvo
+               desativar(); // desativa depois de salvar
+           }
+        }       
+        else if(acao.equals("Editar")){
+         dts.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
+         
+         if(func.editar(dts)) {
+               JOptionPane.showConfirmDialog(rootPane, "O quarto foi editado com sucesso!");
+               mostrar("");     //mostra os dados 
+               desativar(); // desativa depois de editat
+           }
+        }
         
     }//GEN-LAST:event_btn_salvarActionPerformed
 
@@ -479,20 +539,71 @@ public class frm_quartos extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
-        // TODO add your handling code here:
+        mostrar(txt_pesquisar.getText());
+        
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_apagarActionPerformed
-        // TODO add your handling code here:
+        if(!txt_id_quarto.getText().equals("")){
+            int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
+            if (confirmacao == 0){
+                fquartos func = new fquartos();     //chamar clase fquarto
+                vquartos dts = new vquartos();      //chamar clase vquarto
+                dts.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
+                func.deletar(dts);
+                mostrar("");
+                desativar();
+            }
+             
+        } 
     }//GEN-LAST:event_btn_apagarActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
-        // TODO add your handling code here:
+     this.dispose();
     }//GEN-LAST:event_btn_sairActionPerformed
 
     private void btn_relatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_relatorioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_relatorioActionPerformed
+
+    private void txt_numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numeroActionPerformed
+     txt_numero.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+     
+    }//GEN-LAST:event_txt_numeroActionPerformed
+
+    private void CB_andarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_andarActionPerformed
+        CB_andar.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+    }//GEN-LAST:event_CB_andarActionPerformed
+
+    private void txt_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_valorActionPerformed
+        txt_valor.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+    }//GEN-LAST:event_txt_valorActionPerformed
+
+    private void CB_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_estadoActionPerformed
+        CB_estado.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+    }//GEN-LAST:event_CB_estadoActionPerformed
+
+    private void CB_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_tipoActionPerformed
+        CB_tipo.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+    }//GEN-LAST:event_CB_tipoActionPerformed
+
+    private void TB_listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_listaMouseClicked
+    btn_salvar.setText("Editar");
+    ativar();
+    btn_apagar.setEnabled(true);
+    acao = "editar";
+    
+    int linha = TB_lista.rowAtPoint(evt.getPoint());
+    txt_id_quarto.setText(TB_lista.getValueAt(linha, 0).toString());
+    txt_numero.setText(TB_lista.getValueAt(linha, 1).toString());
+    CB_andar.setSelectedItem(TB_lista.getValueAt(linha, 2).toString());
+    txt_descricao.setText(TB_lista.getValueAt(linha, 3).toString());
+    txt_carac.setText(TB_lista.getValueAt(linha, 4).toString());
+    txt_valor.setText(TB_lista.getValueAt(linha, 5).toString());
+    CB_estado.setSelectedItem(TB_lista.getValueAt(linha, 6).toString());
+    CB_tipo.setSelectedItem(TB_lista.getValueAt(linha, 7).toString());
+        
+    }//GEN-LAST:event_TB_listaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -531,11 +642,12 @@ public class frm_quartos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel CB_andar;
+    private javax.swing.JComboBox<String> CB_andar;
     private javax.swing.JComboBox<String> CB_estado;
     private javax.swing.JComboBox<String> CB_tipo;
     private javax.swing.JLabel LB_registros;
     private javax.swing.JTable TB_lista;
+    private javax.swing.JLabel andar;
     private javax.swing.JButton btn_apagar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_cancelar;
@@ -543,7 +655,6 @@ public class frm_quartos extends javax.swing.JFrame {
     private javax.swing.JButton btn_relatorio;
     private javax.swing.JButton btn_sair;
     private javax.swing.JButton btn_salvar;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

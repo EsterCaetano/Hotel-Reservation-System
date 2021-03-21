@@ -11,25 +11,25 @@ package Data;
  */
 public class vquartos {
     private int idquartos;
-    private String number;
-    private String walk;
-    private String descrition;
-    private String characteristics;
-    private Double dailyValue;
-    private String state;
-    private String roomType;
+    private String numero;
+    private String andar;
+    private String descricao;
+    private String caracteristicas;
+    private Double valor_diaria;
+    private String estado;
+    private String tipo_quarto;
 
     
   //Construtor
-    public vquartos(int idquartos, String number, String walk, String descrition, String characteristics, Double dailyValue, String state, String roomType) {
+    public vquartos(int idquartos, String numero, String andar, String descricao, String caracteristicas, Double valor_diaria, String estado, String tipo_quarto) {
         this.idquartos = idquartos;
-        this.number = number;
-        this.walk = walk;
-        this.descrition = descrition;
-        this.characteristics = characteristics;
-        this.dailyValue = dailyValue;
-        this.state = state;
-        this.roomType = roomType;
+        this.numero = numero;
+        this.andar = andar;
+        this.descricao = descricao;
+        this.caracteristicas = caracteristicas;
+        this.valor_diaria = valor_diaria;
+        this.estado = estado;
+        this.tipo_quarto = tipo_quarto;
     }
 
     public vquartos() {
@@ -44,60 +44,60 @@ public class vquartos {
         this.idquartos = idquartos;
     }
 
-    public String getNumber() {
-        return number;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
-    public String getWalk() {
-        return walk;
+    public String getAndar() {
+        return andar;
     }
 
-    public void setWalk(String walk) {
-        this.walk = walk;
+    public void setAndar(String andar) {
+        this.andar = andar;
     }
 
-    public String getDescrition() {
-        return descrition;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescrition(String descrition) {
-        this.descrition = descrition;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getcharacteristics() {
-        return characteristics;
+    public String getCaracteristicas() {
+        return caracteristicas;
     }
 
-    public void setCharacteristics(String characteristics) {
-        this.characteristics = characteristics;
+    public void setCaracteristicas(String caracteristicas) {
+        this.caracteristicas = caracteristicas;
     }
 
-    public Double getDailyValue() {
-        return dailyValue;
+    public Double getValordiaria() {
+        return valor_diaria;
     }
 
-    public void setDailyValue(Double dailyValue) {
-        this.dailyValue = dailyValue;
+    public void setValordiaria(Double valor_diaria) {
+        this.valor_diaria = valor_diaria;
     }
 
-    public String getState() {
-        return state;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public String getRoomType() {
-        return roomType;
+    public String getTipoquarto() {
+        return tipo_quarto;
     }
 
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
+    public void setTipoquarto(String tipo_quarto) {
+        this.tipo_quarto = tipo_quarto;
     }
 
    

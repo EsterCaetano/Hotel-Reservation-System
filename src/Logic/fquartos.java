@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -58,19 +58,20 @@ public class fquartos {
     
     //Metodo para inserir dados no BD
     public boolean inserir (vquartos dts){
+        //estes nomes tem de ser igual ao de Base de dados
         sSQL = "insert into tb_quartos (numero, andar, descricao, caracteristicas, preco_diaria, estado, tipo_quarto)" +
                 "values(?,?,?,?,?,?,?)";
         
         try {
             
             PreparedStatement pst=cn.prepareStatement(sSQL);
-            pst.setString(1, dts.getNumber());
-            pst.setString(2, dts.getWalk());
-            pst.setString(3, dts.getDescrition());
-            pst.setString(4, dts.getcharacteristics());
-            pst.setDouble(5, dts.getDailyValue());
-            pst.setString(6, dts.getState());
-            pst.setString(7, dts.getRoomType());
+            pst.setString(1, dts.getNumero());
+            pst.setString(2, dts.getAndar());
+            pst.setString(3, dts.getDescricao());
+            pst.setString(4, dts.getCaracteristicas());
+            pst.setDouble(5, dts.getValordiaria());
+            pst.setString(6, dts.getEstado());
+            pst.setString(7, dts.getTipoquarto());
             
             int n=pst.executeUpdate();
             if (n!=0){
@@ -89,19 +90,19 @@ public class fquartos {
     //Metodo para editar dados no BD
     public boolean editar (vquartos dts){
         
-        sSQL="update tb_rooms set number=?, walk=?, descrition=?, characteristics=?, dailyValue=?, state=?, roomType=?" +
+        sSQL="update tb_quartos set numero=?, andar=?, descricao=?, caracteristicas=?, valor_diaria=?, estado=?, tipo_quarto=?" +
                 "where id_quartos=?";
         
                
         try {
             PreparedStatement pst=cn.prepareStatement(sSQL);
-            pst.setString(1, dts.getNumber());
-            pst.setString(2, dts.getWalk());
-            pst.setString(3, dts.getDescrition());
-            pst.setString(4, dts.getcharacteristics());
-            pst.setDouble(5, dts.getDailyValue());
-            pst.setString(6, dts.getState());
-            pst.setString(7, dts.getRoomType());
+            pst.setString(1, dts.getNumero());
+            pst.setString(2, dts.getAndar());
+            pst.setString(3, dts.getDescricao());
+            pst.setString(4, dts.getCaracteristicas());
+            pst.setDouble(5, dts.getValordiaria());
+            pst.setString(6, dts.getEstado());
+            pst.setString(7, dts.getTipoquarto());
             pst.setInt(8, dts.getIdquartos());
             
              int n=pst.executeUpdate();
@@ -114,6 +115,25 @@ public class fquartos {
         }catch (Exception e){
              JOptionPane.showConfirmDialog(null, e);
          return false;
+        }
+    }
+    
+    public boolean deletar (vquartos dts){
+        sSQL="delete from tb_quartos where id_quartos=?";
+        
+        try {
+            PreparedStatement pst=cn.prepareStatement(sSQL);
+            pst.setInt(1, dts.getIdquartos());
+            int n=pst.executeUpdate();
+            if (n!=0){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+            return false;
+            
         }
     }
 }

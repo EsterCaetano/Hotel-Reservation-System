@@ -499,19 +499,19 @@ public class frm_quartos extends javax.swing.JFrame {
         vquartos dts = new vquartos();
         fquartos func = new fquartos();
         
-        dts.setNumber(txt_numero.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.
-        dts.setDailyValue(Double.parseDouble(txt_valor.getText()));
-        dts.setDescrition(txt_descricao.getText());
-        dts.setCharacteristics(txt_carac.getText());
+        dts.setNumero(txt_numero.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.
+        dts.setValordiaria(Double.parseDouble(txt_valor.getText()));
+        dts.setDescricao(txt_descricao.getText());
+        dts.setCaracteristicas(txt_carac.getText());
         
         int selecionado = CB_andar.getSelectedIndex();
-        dts.setWalk((String) CB_andar.getItemAt(selecionado));
+        dts.setAndar((String) CB_andar.getItemAt(selecionado));
         
         selecionado = CB_estado.getSelectedIndex();
-        dts.setState((String) CB_estado.getItemAt(selecionado));
+        dts.setEstado((String) CB_estado.getItemAt(selecionado));
         
         selecionado = CB_tipo.getSelectedIndex();
-        dts.setRoomType((String) CB_tipo.getItemAt(selecionado));
+        dts.setTipoquarto((String) CB_tipo.getItemAt(selecionado));
         
         
         //Verificar acção se é de guardar, editat ou de excluir

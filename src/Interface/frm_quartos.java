@@ -25,7 +25,7 @@ public class frm_quartos extends javax.swing.JFrame {
        
     }
 
-    private String acao="save";
+    private String acao="Salvar";
     //Metodo para ocultar coluna
     void ocultar_coluna(){
         TB_lista.getColumnModel().getColumn(0).setMaxWidth(0);  // não terá largura maxima
@@ -36,7 +36,7 @@ public class frm_quartos extends javax.swing.JFrame {
     //Metodo para desativar os campos
      void desativar(){
        txt_id_quarto.setVisible(false);
-       andar.setVisible(false);
+       CB_andar.setVisible(false);
        txt_numero.setVisible(false);
        txt_valor.setVisible(false);
        txt_descricao.setVisible(false);
@@ -60,7 +60,7 @@ public class frm_quartos extends javax.swing.JFrame {
      //Metodo para ativar
      void ativar(){
        txt_id_quarto.setVisible(true);
-       andar.setVisible(true);
+       CB_andar.setVisible(true);
        txt_numero.setVisible(true);
        txt_valor.setVisible(true);
        txt_descricao.setVisible(true);
@@ -68,7 +68,7 @@ public class frm_quartos extends javax.swing.JFrame {
        CB_estado.setVisible(true);
        CB_tipo.setVisible(true);
        
-       //desativar os botons
+       //Ativar os botons
        btn_salvar.setEnabled(true);
        btn_novo.setEnabled(true);
        btn_cancelar.setEnabled(true);
@@ -231,7 +231,7 @@ public class frm_quartos extends javax.swing.JFrame {
         });
 
         btn_salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/salvar.png"))); // NOI18N
-        btn_salvar.setText("Save");
+        btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarActionPerformed(evt);

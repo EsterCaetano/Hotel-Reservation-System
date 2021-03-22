@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ester
  */
-public class frm_quartos extends javax.swing.JFrame {
+public final class frm_quartos extends javax.swing.JFrame {
 
     /**
      * Creates new form frm_quarto
@@ -22,7 +22,8 @@ public class frm_quartos extends javax.swing.JFrame {
     public frm_quartos() {
         initComponents();
         desativar();
-       
+        mostrar("null"); //Ao rodar o programa ele aculta todas informações de tabela
+       this.setLocationRelativeTo(null); // centralizar o ecrã
     }
 
     private String acao="Salvar";
@@ -54,12 +55,13 @@ public class frm_quartos extends javax.swing.JFrame {
        txt_valor.setText("");
        txt_descricao.setText("");
        txt_carac.setText("");
+       txt_numero.setText("");
             
      } 
      
      //Metodo para ativar
      void ativar(){
-       txt_id_quarto.setVisible(true);
+       txt_id_quarto.setVisible(false);
        CB_andar.setVisible(true);
        txt_numero.setVisible(true);
        txt_valor.setVisible(true);
@@ -78,6 +80,7 @@ public class frm_quartos extends javax.swing.JFrame {
        txt_valor.setText("");
        txt_descricao.setText("");
        txt_carac.setText("");
+       txt_numero.setText("");
             
      }
      
@@ -110,7 +113,7 @@ public class frm_quartos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txt_numero = new javax.swing.JTextField();
-        andar = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         CB_andar = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -175,7 +178,7 @@ public class frm_quartos extends javax.swing.JFrame {
             }
         });
 
-        andar.setText("Andar");
+        jLabel11.setText("Walk");
 
         CB_andar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
         CB_andar.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +242,7 @@ public class frm_quartos extends javax.swing.JFrame {
         });
 
         btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/cancelar.png"))); // NOI18N
-        btn_cancelar.setText("Cancel");
+        btn_cancelar.setText("Clean");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarActionPerformed(evt);
@@ -270,7 +273,7 @@ public class frm_quartos extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(andar)
+                                .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CB_andar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1)
@@ -308,7 +311,7 @@ public class frm_quartos extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(andar)
+                        .addComponent(jLabel11)
                         .addComponent(CB_andar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +332,7 @@ public class frm_quartos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(CB_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_novo)
                     .addComponent(btn_salvar)
@@ -398,14 +401,11 @@ public class frm_quartos extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(7, 7, 7)
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_buscar)
@@ -420,6 +420,10 @@ public class frm_quartos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LB_registros)
                 .addGap(63, 63, 63))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -427,14 +431,13 @@ public class frm_quartos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_buscar)
-                        .addComponent(btn_apagar)
-                        .addComponent(btn_sair)
-                        .addComponent(btn_relatorio)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_buscar)
+                    .addComponent(btn_apagar)
+                    .addComponent(btn_sair)
+                    .addComponent(btn_relatorio)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -469,29 +472,30 @@ public class frm_quartos extends javax.swing.JFrame {
        ativar();
        btn_salvar.setText("Salvar");
        acao="Salvar";
+       btn_novo.enable(false);
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
         if(txt_numero.getText().length() == 0){
-            JOptionPane.showConfirmDialog(rootPane, "Insira o numero do quarto");
+            JOptionPane.showMessageDialog(rootPane, "Insira o numero do quarto");
             txt_numero.requestFocus();
             return;
         }
         
         if(txt_descricao.getText().length() == 0){
-            JOptionPane.showConfirmDialog(rootPane, "Insira uma descrição para o quarto");
+            JOptionPane.showMessageDialog(rootPane, "Insira uma descrição para o quarto");
             txt_descricao.requestFocus();
             return;
         }
         
         if(txt_carac.getText().length() == 0){
-            JOptionPane.showConfirmDialog(rootPane, "Insira uma careteristica para o quarto");
+            JOptionPane.showMessageDialog(rootPane, "Insira uma careteristica para o quarto");
             txt_carac.requestFocus();
             return;
         }
         
         if(txt_valor.getText().length() == 0){
-            JOptionPane.showConfirmDialog(rootPane, "Insira o valor da diaria");
+            JOptionPane.showMessageDialog(rootPane, "Insira o valor da diaria");
             txt_valor.requestFocus();
             return;
         }
@@ -505,7 +509,7 @@ public class frm_quartos extends javax.swing.JFrame {
         dts.setCaracteristicas(txt_carac.getText());
         
         int selecionado = CB_andar.getSelectedIndex();
-        dts.setAndar((String) CB_andar.getItemAt(selecionado));
+        dts.setAndar((String)  CB_andar.getItemAt(selecionado));
         
         selecionado = CB_estado.getSelectedIndex();
         dts.setEstado((String) CB_estado.getItemAt(selecionado));
@@ -517,7 +521,7 @@ public class frm_quartos extends javax.swing.JFrame {
         //Verificar acção se é de guardar, editat ou de excluir
         if(acao.equals("Salvar")){
            if(func.inserir(dts)) {
-               JOptionPane.showConfirmDialog(rootPane, "O quarto foi regristado com sucesso!");
+               JOptionPane.showMessageDialog(rootPane, "O quarto foi regristado com sucesso!");
                mostrar("");     //mostra os dados salvo
                desativar(); // desativa depois de salvar
            }
@@ -526,7 +530,7 @@ public class frm_quartos extends javax.swing.JFrame {
          dts.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
          
          if(func.editar(dts)) {
-               JOptionPane.showConfirmDialog(rootPane, "O quarto foi editado com sucesso!");
+               JOptionPane.showMessageDialog(rootPane, "O quarto foi editado com sucesso!");
                mostrar("");     //mostra os dados 
                desativar(); // desativa depois de editat
            }
@@ -535,7 +539,7 @@ public class frm_quartos extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
-        // TODO add your handling code here:
+        clean();
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
@@ -605,6 +609,14 @@ public class frm_quartos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_TB_listaMouseClicked
 
+    void clean(){
+        txt_id_quarto.setText("");
+        txt_valor.setText("");
+        txt_descricao.setText("");
+        txt_carac.setText("");
+        txt_numero.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -647,7 +659,6 @@ public class frm_quartos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_tipo;
     private javax.swing.JLabel LB_registros;
     private javax.swing.JTable TB_lista;
-    private javax.swing.JLabel andar;
     private javax.swing.JButton btn_apagar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_cancelar;
@@ -656,6 +667,7 @@ public class frm_quartos extends javax.swing.JFrame {
     private javax.swing.JButton btn_sair;
     private javax.swing.JButton btn_salvar;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

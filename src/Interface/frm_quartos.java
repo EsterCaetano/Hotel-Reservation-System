@@ -175,7 +175,7 @@ public class frm_quartos extends javax.swing.JFrame {
             }
         });
 
-        andar.setText("Walk");
+        andar.setText("Andar");
 
         CB_andar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
         CB_andar.addActionListener(new java.awt.event.ActionListener() {
@@ -415,7 +415,7 @@ public class frm_quartos extends javax.swing.JFrame {
                 .addComponent(btn_relatorio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_sair)
-                .addGap(0, 28, Short.MAX_VALUE))
+                .addGap(0, 126, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LB_registros)
@@ -468,7 +468,7 @@ public class frm_quartos extends javax.swing.JFrame {
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
        ativar();
        btn_salvar.setText("Salvar");
-       acao="salvar";
+       acao="Salvar";
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed

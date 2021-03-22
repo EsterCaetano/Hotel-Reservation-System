@@ -26,25 +26,25 @@ public class fquartos {
     
     public DefaultTableModel mostrar(String buscar){
         DefaultTableModel modelo;
-    String[] titulos = {"ID", "Number", "Walk", "Descrition", "Characteristics", "Price", "State", "Type of room"};
+    String[] titulos = {"ID", "Numero", "Andar", "Descricao", "Caracteristicas", "Preco_diaria", "Estado", "Tipo_quarto"};
     String[] registro = new String[8];
     totalregistros = 0;
     
     modelo = new DefaultTableModel(null, titulos);
-    sSQL = "select * from tb_rooms where walk like '%" + buscar + "%' order by id_quartos";
+    sSQL = "select * from tb_quartos where walk like '%" + buscar + "%' order by id_quartos";
     
     try{
         Statement st = cn.createStatement();
         ResultSet rs=st.executeQuery(sSQL);
         while(rs.next()){
            registro [0]=rs.getString("id_quartos");
-               registro [1]=rs.getString("number");
-               registro [2]=rs.getString("walk");
-               registro [3]=rs.getString("descrition");
-               registro [4]=rs.getString("characteristics");
-               registro [5]=rs.getString("price_day");
-               registro [6]=rs.getString("state");
-               registro [7]=rs.getString("room_type"); 
+               registro [1]=rs.getString("numero");
+               registro [2]=rs.getString("andar");
+               registro [3]=rs.getString("descricao");
+               registro [4]=rs.getString("caracteristicas");
+               registro [5]=rs.getString("preco_diaria");
+               registro [6]=rs.getString("estado");
+               registro [7]=rs.getString("tipo_quarto"); 
                
                totalregistros = totalregistros +1;
                modelo.addRow(registro);

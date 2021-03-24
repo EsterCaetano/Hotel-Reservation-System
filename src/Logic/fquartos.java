@@ -18,20 +18,20 @@ import javax.swing.table.DefaultTableModel;
  * @author ester
  */
 public class fquartos {
-    private conexao mysql=new conexao();
-    private Connection cn=mysql.conectar();
+    private final conexao mysql=new conexao();
+    private final Connection cn=mysql.conectar();
     private String sSQL="";
     public Integer totalregistros;
     
     
     public DefaultTableModel mostrar(String buscar){
         DefaultTableModel modelo;
-    String[] titulos = {"ID", "Numero", "Andar", "Descricao", "Caracteristicas", "Preco_diaria", "Estado", "Tipo_quarto"};
+    String[] titulos = {"ID", "Number", "Walk", "Descrition", "characteristics", "Price_day", "State", "Room Type"};
     String[] registro = new String[8];
     totalregistros = 0;
     
     modelo = new DefaultTableModel(null, titulos);
-    sSQL = "select * from tb_quartos where walk like '%" + buscar + "%' order by id_quartos";
+    sSQL = "select * from tb_quartos where andar like '%" + buscar + "%' order by id_quartos";
     
     try{
         Statement st = cn.createStatement();

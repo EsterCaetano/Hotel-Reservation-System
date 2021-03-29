@@ -90,7 +90,7 @@ public class fquartos {
     //Metodo para editar dados no BD
     public boolean editar (vquartos dts){
         
-        sSQL="update tb_quartos set numero=?, andar=?, descricao=?, caracteristicas=?, valor_diaria=?, estado=?, tipo_quarto=?" +
+        sSQL="update tb_quartos set numero=?, andar=?, descricao=?, caracteristicas=?, preco_diaria=?, estado=?, tipo_quarto=?" +
                 "where id_quartos=?";
         
                

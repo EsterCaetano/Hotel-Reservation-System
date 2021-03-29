@@ -595,7 +595,7 @@ public final class frm_quartos extends javax.swing.JFrame {
     btn_salvar.setText("Editar");
     ativar();
     btn_apagar.setEnabled(true);
-    acao = "editar";
+    acao = "Editar";
     
     int linha = TB_lista.rowAtPoint(evt.getPoint());
     txt_id_quarto.setText(TB_lista.getValueAt(linha, 0).toString());

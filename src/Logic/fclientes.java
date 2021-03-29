@@ -6,7 +6,6 @@
 package Logic;
 
 import Data.vprodutos;
-import Data.vquartos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,8 +17,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ester
  */
-public class fprodutos {
-    private final conexao mysql=new conexao();
+public class fclientes {
+     private final conexao mysql=new conexao();
     private final Connection cn=mysql.conectar();
     private String sSQL="";
     public Integer totalregistros;
@@ -136,4 +135,5 @@ public class fprodutos {
             
         }
     }
+    
 }

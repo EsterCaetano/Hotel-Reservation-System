@@ -13,18 +13,18 @@ public class vprodutos {
     private int idproduto;
     private String nome;
     private String descricao;
-    private String unidade_media;
+    private String unidade_medida;
     private Double valor_produto;  
 
     //contrutor vazio
     public vprodutos() {
     }
     //construto com informações 
-    public vprodutos(int idproduto, String nome, String descricao, String unidade_media, Double valor_produto) {
+    public vprodutos(int idproduto, String nome, String descricao, String unidade_medida, Double valor_produto) {
         this.idproduto = idproduto;
         this.nome = nome;
         this.descricao = descricao;
-        this.unidade_media = unidade_media;
+        this.unidade_medida = unidade_medida;
         this.valor_produto = valor_produto;
     }
 //Metodos get e set
@@ -52,12 +52,12 @@ public class vprodutos {
         this.descricao = descricao;
     }
 
-    public String getUnidade_media() {
-        return unidade_media;
+    public String getUnidade_medida() {
+        return unidade_medida;
     }
 
-    public void setUnidade_media(String unidade_media) {
-        this.unidade_media = unidade_media;
+    public void setUnidade_medida(String unidade_media) {
+        this.unidade_medida = unidade_media;
     }
 
     public Double getValor_produto() {

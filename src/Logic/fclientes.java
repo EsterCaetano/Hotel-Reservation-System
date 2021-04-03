@@ -6,7 +6,6 @@
 package Logic;
 
 import Data.vclientes;
-import Data.vprodutos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -110,7 +109,7 @@ public class fclientes {
     
     public boolean editar (vclientes dts){
         
-        sSQL="update tb_produtos set nome_pessoa=?, nome_pai=?, nome_mae=?, tipo_documento=?, num_documento=?, endereco=?, telefone=?, email=?" +
+        sSQL="update tb_pessoas set nome_pessoa=?, nome_pai=?, nome_mae=?, tipo_documento=?, num_documento=?, endereco=?, telefone=?, email=?" +
                 "where id_pessoa=?";
         sSQL2="update tb_clientes set codigo_cliente=?" +
                 "where id_pessoa=?";

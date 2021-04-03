@@ -67,7 +67,7 @@ public class frm_produtos extends javax.swing.JFrame {
        
        //Ativar os botons
        btn_salvar.setEnabled(true);
-       btn_novo.setEnabled(true);
+       //btn_novo.setEnabled(true);
        btn_limpar.setEnabled(true);
        
        //Limpar os campos
@@ -495,7 +495,7 @@ public class frm_produtos extends javax.swing.JFrame {
         ativar();
         btn_salvar.setText("Salvar");
         acao="Salvar";
-        btn_novo.enable(false);
+        //btn_novo.setEnabled(false);
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void txt_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_valorActionPerformed

@@ -10,7 +10,7 @@ package Data;
  * @author ester
  */
 public class vfuncionarios extends vpessoas{
-     Double salario;
+    Double salario;
     String acesso;
     String login;
     String password;
@@ -29,7 +29,7 @@ public class vfuncionarios extends vpessoas{
         this.estado = estado;
     }
 
-    
+        
     public Double getSalario() {
         return salario;
     }

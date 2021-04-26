@@ -4,11 +4,9 @@
  * and open the template in the editor.
  */
 package Interface;
-import javax.swing.JPasswordField;
-import Data.vfuncionarios;
+
 import Data.vclientes;
 import Data.vprodutos;
-import Logic.ffuncionarios;
 import Logic.fclientes;
 import Logic.fprodutos;
 import Logic.fquartos;
@@ -19,25 +17,27 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ester
  */
-public class frm_funcionarios extends javax.swing.JFrame {
+public class FrmClientes extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form frm_funcionarios
+     * Creates new form frm_clientes
      */
-    public frm_funcionarios() {
+    public FrmClientes() {
         initComponents();
         desativar();
-        mostrar("null");
+        mostrar("null"); //Ao rodar o programa ele aculta todas informações de tabela
+       //this.setLocationRelativeTo(null); // centralizar o ecrã
     }
-
-     private String acao="salvar";
+    
+    private String acao="Salvar";
+    //Metodo para ocultar coluna
     void ocultar_coluna(){
-        TB_lista.getColumnModel().getColumn(0).setMaxWidth(0);
-        TB_lista.getColumnModel().getColumn(0).setMinWidth(0);
-        TB_lista.getColumnModel().getColumn(0).setPreferredWidth(0);
-    }
+        TB_lista.getColumnModel().getColumn(0).setMaxWidth(0);  // não terá largura maxima
+        TB_lista.getColumnModel().getColumn(0).setMinWidth(0); // não terá largura minima
+        TB_lista.getColumnModel().getColumn(0).setPreferredWidth(0);    // não terá nenhum paramentro relacionado com coluna
+    } 
     
-    
+    //Metodo para desativar os campos
      void desativar(){
         txt_id_pessoa.setVisible(false);
         CB_tipo.setEnabled(false);
@@ -49,16 +49,14 @@ public class frm_funcionarios extends javax.swing.JFrame {
         txt_email.setEnabled(false);
         txt_codigo_cliente.setEnabled(false);
         txt_endereco.setEnabled(false);
-         txt_salario.setEnabled(false);
-        txt_senha.setEnabled(false);
-        txt_login.setEnabled(false);
-        CB_estado.setEnabled(false);
-        CB_acesso.setEnabled(false);
-        
-        btn_salvar.setEnabled(false);
-        btn_limpar.setEnabled(false);
-          
-        
+       
+       
+       //desativar os botons
+       btn_salvar.setEnabled(false);
+       //btn_novo.setEnabled(false);
+       btn_limpar.setEnabled(false);
+       
+       //Limpar os campos
         txt_num_doc.setText("");
         txt_nomepai.setText("");
         txt_nome.setText("");
@@ -67,14 +65,12 @@ public class frm_funcionarios extends javax.swing.JFrame {
         txt_codigo_cliente.setText("");
         txt_email.setText("");
         txt_endereco.setText("");
-        txt_senha.setText("");
-        txt_login.setText("");
-        txt_salario.setText("");
-        
-    }
-    
-    void ativar(){
-         txt_id_pessoa.setVisible(false);
+            
+     } 
+     
+     //Metodo para ativar
+     void ativar(){
+        txt_id_pessoa.setVisible(false);
         CB_tipo.setEnabled(true);
         txt_nome.setEnabled(true);
         txt_nomepai.setEnabled(true);
@@ -83,17 +79,15 @@ public class frm_funcionarios extends javax.swing.JFrame {
         txt_telefone.setEnabled(true);
         txt_email.setEnabled(true);
         txt_codigo_cliente.setEnabled(true);
-          txt_endereco.setEnabled(true);
-            txt_salario.setEnabled(true);
-        txt_senha.setEnabled(true);
-              txt_login.setEnabled(true);
-        CB_estado.setEnabled(true);
-        CB_acesso.setEnabled(true);
-          
-        btn_salvar.setEnabled(true);
-        btn_limpar.setEnabled(true);
-          
-        
+        txt_endereco.setEnabled(true);
+       
+       
+       //Ativar os botons
+       btn_salvar.setEnabled(true);
+       //btn_novo.setEnabled(true);
+       btn_limpar.setEnabled(true);
+       
+       //Limpar os campos
         txt_num_doc.setText("");
         txt_nomepai.setText("");
         txt_nome.setText("");
@@ -102,41 +96,37 @@ public class frm_funcionarios extends javax.swing.JFrame {
         txt_codigo_cliente.setText("");
         txt_email.setText("");
         txt_endereco.setText("");
-        txt_senha.setText("");
-        txt_login.setText("");
-        txt_salario.setText("");
-    }
-    
-     void mostrar (String buscar){
+            
+     }
+     
+     //Metodo Busca
+     void mostrar(String buscar){
+       try{
+           DefaultTableModel modelo;
+           fclientes func=new fclientes();
+           modelo = func.mostrar(buscar);
+           TB_lista.setModel(modelo);
+           ocultar_coluna();
+           LB_registros.setText("Total Registros" + Integer.toString(func.totalregistros) );
+           
+       }catch (Exception e){
+          JOptionPane.showConfirmDialog(null, e); 
+       }  
+     }
+     
+     void clean(){
+       txt_num_doc.setText("");
+       txt_nome.setText("");
+       txt_nomepai.setText("");
+       txt_nomemae.setText("");
+       txt_telefone.setText("");
+       txt_email.setText("");
+       txt_codigo_cliente.setText("");
+       txt_endereco.setText("");
         
-        try{
-            DefaultTableModel modelo;
-            ffuncionarios func=new ffuncionarios();
-            modelo = func.mostrar(buscar);
-            TB_lista.setModel(modelo);
-            ocultar_coluna();
-            LB_registros.setText("Total Registros " + Integer.toString(func.totalregistros) );
-                        
-        }catch (Exception e){
-            JOptionPane.showConfirmDialog(null, e);
-        }
-    }
-    
-    void clean() {
-         txt_num_doc.setText("");
-        txt_nomepai.setText("");
-        txt_nome.setText("");
-        txt_nomemae.setText("");
-        txt_telefone.setText("");
-        txt_codigo_cliente.setText("");
-        txt_email.setText("");
-        txt_endereco.setText("");
-        txt_senha.setText("");
-        txt_login.setText("");
-        txt_salario.setText("");
     }
 
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -171,16 +161,6 @@ public class frm_funcionarios extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txt_codigo_cliente = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        txt_salario = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        CB_acesso = new javax.swing.JComboBox<>();
-        jLabel18 = new javax.swing.JLabel();
-        txt_login = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        txt_senha = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        CB_estado = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -193,11 +173,14 @@ public class frm_funcionarios extends javax.swing.JFrame {
         btn_relatorio = new javax.swing.JButton();
         LB_registros = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Employee Registration");
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setTitle("Cadastro Clientes");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel2.setText("Employee Registration");
+        jLabel2.setText("Customer registration");
 
         jLabel3.setText("Client name");
 
@@ -294,54 +277,25 @@ public class frm_funcionarios extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setText("Salario");
-
-        txt_salario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_salarioActionPerformed(evt);
-            }
-        });
-
-        jLabel17.setText("Acesso");
-
-        CB_acesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Padrão", " " }));
-        CB_acesso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_acessoActionPerformed(evt);
-            }
-        });
-
-        jLabel18.setText("Login");
-
-        txt_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_loginActionPerformed(evt);
-            }
-        });
-
-        jLabel19.setText("Senha");
-
-        txt_senha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_senhaActionPerformed(evt);
-            }
-        });
-
-        jLabel20.setText("Estado");
-
-        CB_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enable", "Desable", " " }));
-        CB_estado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_estadoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel12))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(102, 102, 102)
+                                .addComponent(btn_novo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_salvar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_limpar)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,66 +326,22 @@ public class frm_funcionarios extends javax.swing.JFrame {
                                                 .addComponent(txt_num_doc))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                                         .addComponent(jLabel15)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txt_codigo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addGap(34, 34, 34)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel16))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(232, 232, 232)
-                                                .addComponent(jLabel13))
-                                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(48, 48, 48)
+                                        .addComponent(jLabel13)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt_email)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(CB_acesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(0, 0, Short.MAX_VALUE))))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(223, 223, 223)
-                                        .addComponent(jLabel19)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel12))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel18)
-                                                .addGap(34, 34, 34))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel20)
-                                                .addGap(26, 26, 26)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(CB_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addComponent(txt_email))
+                                    .addComponent(jScrollPane1))))))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addComponent(btn_novo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_salvar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_limpar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -472,32 +382,16 @@ public class frm_funcionarios extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel14)
                         .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17)
-                    .addComponent(CB_acesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_salario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(txt_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(CB_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_novo)
                     .addComponent(btn_salvar)
                     .addComponent(btn_limpar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(76, 76, 76))
         );
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel4.setText("Employee of  List");
+        jLabel4.setText("Products of  List");
 
         TB_lista.setBackground(new java.awt.Color(204, 204, 204));
         TB_lista.setModel(new javax.swing.table.DefaultTableModel(
@@ -576,14 +470,11 @@ public class frm_funcionarios extends javax.swing.JFrame {
                         .addComponent(btn_sair)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 761, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(jLabel4)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,9 +489,9 @@ public class frm_funcionarios extends javax.swing.JFrame {
                     .addComponent(btn_sair)
                     .addComponent(btn_relatorio)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(LB_registros)
                 .addContainerGap())
         );
@@ -610,10 +501,9 @@ public class frm_funcionarios extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -621,107 +511,13 @@ public class frm_funcionarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 135, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed
-        txt_nome.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
-    }//GEN-LAST:event_txt_nomeActionPerformed
-
-    private void CB_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_tipoActionPerformed
-        CB_tipo.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
-    }//GEN-LAST:event_CB_tipoActionPerformed
-
-    private void txt_num_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_num_docActionPerformed
-        txt_num_doc.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
-    }//GEN-LAST:event_txt_num_docActionPerformed
-
-    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
-        ativar();
-        btn_salvar.setText("Salvar");
-        acao="Salvar";
-        //  btn_novo.setEnabled(false);
-    }//GEN-LAST:event_btn_novoActionPerformed
-
-    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-        if(txt_nome.getText().length() == 0){
-            JOptionPane.showMessageDialog(rootPane, "Insira o nome do funcionário");
-            txt_nome.requestFocus();
-            return;
-        }
-
-        vfuncionarios dts = new vfuncionarios();
-        ffuncionarios func = new ffuncionarios();
-
-        dts.setNome(txt_nome.getText());
-        //dts.setCodigo_cliente(txt_codigo_cliente.getText());
-        dts.setNome_pai(txt_nomepai.getText());
-        dts.setNome_mae(txt_nomemae.getText());
-        dts.setNum_documento(txt_num_doc.getText());
-        dts.setEndereco(txt_endereco.getText());
-        dts.setEmail(txt_email.getText());
-        dts.setTelefone(txt_telefone.getText());
-
-        dts.setSalario(Double.parseDouble(txt_salario.getText()));
-        dts.setLogin(txt_login.getText());
-        dts.setPassword(txt_senha.getText());
-        
-        int selecionado = CB_tipo.getSelectedIndex();
-        dts.setTipo_documento((String) CB_tipo.getItemAt(selecionado));
-
-        selecionado = CB_acesso.getSelectedIndex();
-        dts.setAcesso((String) CB_acesso.getItemAt(selecionado));
-        
-        selecionado = CB_estado.getSelectedIndex();
-        dts.setEstado((String) CB_estado.getItemAt(selecionado));
-        
-        //Verificar acção se é de guardar
-        if(acao.equals("Salvar")){
-            if(func.inserir(dts)) {
-                JOptionPane.showMessageDialog(rootPane, "O Funcionário foi regristado com sucesso!");
-                mostrar("");     //mostra os dados salvo
-                desativar(); // desativa depois de salvar
-            }
-        }
-        else if(acao.equals("editar")){
-            dts.setId_pessoa(Integer.parseInt(txt_id_pessoa.getText()));
-
-            if(func.editar(dts)) {
-                JOptionPane.showMessageDialog(rootPane, "O cliente foi editado com sucesso!");
-                mostrar("");     //mostra os dados
-                desativar(); // desativa depois de editat
-            }
-        }
-    }//GEN-LAST:event_btn_salvarActionPerformed
-
-    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
-        clean(); // chamar o metodo limpar
-    }//GEN-LAST:event_btn_limparActionPerformed
-
-    private void txt_nomepaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomepaiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nomepaiActionPerformed
-
-    private void txt_nomemaeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomemaeActionPerformed
-        txt_nome.transferFocus();
-    }//GEN-LAST:event_txt_nomemaeActionPerformed
-
-    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_emailActionPerformed
-
-    private void txt_telefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_telefoneActionPerformed
-
-    private void txt_codigo_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigo_clienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_codigo_clienteActionPerformed
 
     private void TB_listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_listaMouseClicked
         btn_salvar.setText("Editar");
@@ -739,13 +535,8 @@ public class frm_funcionarios extends javax.swing.JFrame {
         txt_endereco.setText(TB_lista.getValueAt(linha, 6).toString());
         txt_telefone.setText(TB_lista.getValueAt(linha, 7).toString());
         txt_email.setText(TB_lista.getValueAt(linha, 8).toString());
-        txt_salario.setText(TB_lista.getValueAt(linha, 9).toString());
-        txt_salario.setText(TB_lista.getValueAt(linha, 9).toString());
-        txt_salario.setText(TB_lista.getValueAt(linha, 9).toString());
-        CB_acesso.setSelectedItem(TB_lista.getValueAt(linha, 10).toString());
-        txt_login.setText(TB_lista.getValueAt(linha, 11).toString());
-        txt_senha.setText(TB_lista.getValueAt(linha, 12).toString());
-        CB_estado.setSelectedItem(TB_lista.getValueAt(linha, 13).toString());
+        txt_codigo_cliente.setText(TB_lista.getValueAt(linha, 9).toString());
+        
         
     }//GEN-LAST:event_TB_listaMouseClicked
 
@@ -757,8 +548,8 @@ public class frm_funcionarios extends javax.swing.JFrame {
         if(!txt_id_pessoa.getText().equals("")){
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
-                vfuncionarios dts = new vfuncionarios();
-                ffuncionarios func = new ffuncionarios();
+                fclientes func = new fclientes();     //chamar clase fquarto
+                vclientes dts = new vclientes();      //chamar clase vquarto
                 dts.setId_pessoa(Integer.parseInt(txt_id_pessoa.getText()));
                 func.deletar(dts);
                 mostrar("");
@@ -776,25 +567,89 @@ public class frm_funcionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_relatorioActionPerformed
 
-    private void txt_salarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_salarioActionPerformed
+    private void txt_codigo_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigo_clienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_salarioActionPerformed
+    }//GEN-LAST:event_txt_codigo_clienteActionPerformed
 
-    private void CB_acessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_acessoActionPerformed
+    private void txt_telefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_telefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CB_acessoActionPerformed
+    }//GEN-LAST:event_txt_telefoneActionPerformed
 
-    private void txt_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_loginActionPerformed
+    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_loginActionPerformed
+    }//GEN-LAST:event_txt_emailActionPerformed
 
-    private void txt_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_senhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_senhaActionPerformed
+    private void txt_nomemaeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomemaeActionPerformed
+        txt_nome.transferFocus();
+    }//GEN-LAST:event_txt_nomemaeActionPerformed
 
-    private void CB_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_estadoActionPerformed
+    private void txt_nomepaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomepaiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CB_estadoActionPerformed
+    }//GEN-LAST:event_txt_nomepaiActionPerformed
+
+    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
+        clean(); // chamar o metodo limpar
+    }//GEN-LAST:event_btn_limparActionPerformed
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        if(txt_nome.getText().length() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Insira o nome do cliente");
+            txt_nome.requestFocus();
+            return;
+        }
+
+        vclientes dts = new vclientes();
+        fclientes func = new fclientes();
+
+        dts.setNome(txt_nome.getText());
+        dts.setCodigo_cliente(txt_codigo_cliente.getText());
+        dts.setNome_pai(txt_nomepai.getText());
+        dts.setNome_mae(txt_nomemae.getText());
+        dts.setNum_documento(txt_num_doc.getText());
+        dts.setEndereco(txt_endereco.getText());
+        dts.setEmail(txt_email.getText());
+        dts.setTelefone(txt_telefone.getText());
+
+        int selecionado = CB_tipo.getSelectedIndex();
+        dts.setTipo_documento((String) CB_tipo.getItemAt(selecionado));
+        
+        //Verificar acção se é de guardar
+        if(acao.equals("Salvar")){
+            if(func.inserir(dts)) {
+                JOptionPane.showMessageDialog(rootPane, "O cliente foi regristado com sucesso!");
+                mostrar("");     //mostra os dados salvo
+                desativar(); // desativa depois de salvar
+            }
+        }
+        else if(acao.equals("editar")){
+            dts.setId_pessoa(Integer.parseInt(txt_id_pessoa.getText()));
+
+            if(func.editar(dts)) {
+                JOptionPane.showMessageDialog(rootPane, "O cliente foi editado com sucesso!");
+                mostrar("");     //mostra os dados
+                desativar(); // desativa depois de editat
+            }
+        }
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
+        ativar();
+        btn_salvar.setText("Salvar");
+        acao="Salvar";
+        //  btn_novo.setEnabled(false);
+    }//GEN-LAST:event_btn_novoActionPerformed
+
+    private void txt_num_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_num_docActionPerformed
+        txt_num_doc.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+    }//GEN-LAST:event_txt_num_docActionPerformed
+
+    private void CB_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_tipoActionPerformed
+        CB_tipo.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+    }//GEN-LAST:event_CB_tipoActionPerformed
+
+    private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed
+        txt_nome.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+    }//GEN-LAST:event_txt_nomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -813,27 +668,26 @@ public class frm_funcionarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_funcionarios().setVisible(true);
+                new FrmClientes().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CB_acesso;
-    private javax.swing.JComboBox<String> CB_estado;
     private javax.swing.JComboBox<String> CB_tipo;
     private javax.swing.JLabel LB_registros;
     private javax.swing.JTable TB_lista;
@@ -850,12 +704,7 @@ public class frm_funcionarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
@@ -869,14 +718,11 @@ public class frm_funcionarios extends javax.swing.JFrame {
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextArea txt_endereco;
     private javax.swing.JTextField txt_id_pessoa;
-    private javax.swing.JTextField txt_login;
     private javax.swing.JTextField txt_nome;
     private javax.swing.JTextField txt_nomemae;
     private javax.swing.JTextField txt_nomepai;
     private javax.swing.JTextField txt_num_doc;
     private javax.swing.JTextField txt_pesquisar;
-    private javax.swing.JTextField txt_salario;
-    private javax.swing.JTextField txt_senha;
     private javax.swing.JTextField txt_telefone;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,8 @@
  */
 package Interface;
 
-import Data.vquartos;
+import Data.vprodutos;
+import Logic.fprodutos;
 import Logic.fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -14,19 +15,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ester
  */
-public final class frm_quartos extends javax.swing.JFrame {
+public class FrmProdutos extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form frm_quarto
+     * Creates new form frm_produtos
      */
-    public frm_quartos() {
+    public FrmProdutos() {
         initComponents();
         desativar();
         mostrar("null"); //Ao rodar o programa ele aculta todas informações de tabela
-       this.setLocationRelativeTo(null); // centralizar o ecrã
+       //this.setLocationRelativeTo(null); // centralizar o ecrã
     }
-
-    private String acao="Salvar";
+    
+     private String acao="Salvar";
     //Metodo para ocultar coluna
     void ocultar_coluna(){
         TB_lista.getColumnModel().getColumn(0).setMaxWidth(0);  // não terá largura maxima
@@ -36,51 +37,43 @@ public final class frm_quartos extends javax.swing.JFrame {
     
     //Metodo para desativar os campos
      void desativar(){
-       txt_id_quarto.setVisible(false);
-       CB_andar.setVisible(false);
-       txt_numero.setVisible(false);
+       txt_id_produto.setVisible(false);
+       CB_unidade.setVisible(false);
+       txt_nome.setVisible(false);
        txt_valor.setVisible(false);
        txt_descricao.setVisible(false);
-       txt_carac.setVisible(false);
-       CB_estado.setVisible(false);
-       CB_tipo.setVisible(false);
+       
        
        //desativar os botons
        btn_salvar.setEnabled(false);
        //btn_novo.setEnabled(false);
-       btn_cancelar.setEnabled(false);
+       btn_limpar.setEnabled(false);
        
        //Limpar os campos
-       txt_id_quarto.setText("");
        txt_valor.setText("");
        txt_descricao.setText("");
-       txt_carac.setText("");
-       txt_numero.setText("");
+       txt_nome.setText("");
             
      } 
      
      //Metodo para ativar
      void ativar(){
-       txt_id_quarto.setVisible(false);
-       CB_andar.setVisible(true);
-       txt_numero.setVisible(true);
+       txt_id_produto.setVisible(false);
+       CB_unidade.setVisible(true);
+       txt_nome.setVisible(true);
        txt_valor.setVisible(true);
        txt_descricao.setVisible(true);
-       txt_carac.setVisible(true);
-       CB_estado.setVisible(true);
-       CB_tipo.setVisible(true);
+       
        
        //Ativar os botons
        btn_salvar.setEnabled(true);
-       btn_novo.setEnabled(true);
-       btn_cancelar.setEnabled(true);
+       //btn_novo.setEnabled(true);
+       btn_limpar.setEnabled(true);
        
        //Limpar os campos
-       txt_id_quarto.setText("");
        txt_valor.setText("");
        txt_descricao.setText("");
-       txt_carac.setText("");
-       txt_numero.setText("");
+       txt_nome.setText("");
             
      }
      
@@ -88,7 +81,7 @@ public final class frm_quartos extends javax.swing.JFrame {
      void mostrar(String buscar){
        try{
            DefaultTableModel modelo;
-           fquartos func=new fquartos();
+           fprodutos func=new fprodutos();
            modelo = func.mostrar(buscar);
            TB_lista.setModel(modelo);
            ocultar_coluna();
@@ -98,6 +91,15 @@ public final class frm_quartos extends javax.swing.JFrame {
           JOptionPane.showConfirmDialog(null, e); 
        }  
      }
+     
+     void clean(){
+        txt_id_produto.setText("");
+        txt_valor.setText("");
+        txt_descricao.setText("");
+        txt_nome.setText("");
+        
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -107,30 +109,21 @@ public final class frm_quartos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txt_numero = new javax.swing.JTextField();
+        txt_nome = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        CB_andar = new javax.swing.JComboBox<>();
+        CB_unidade = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txt_valor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_descricao = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txt_carac = new javax.swing.JTextArea();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        CB_estado = new javax.swing.JComboBox<>();
-        CB_tipo = new javax.swing.JComboBox<>();
         btn_novo = new javax.swing.JButton();
         btn_salvar = new javax.swing.JButton();
-        btn_cancelar = new javax.swing.JButton();
-        txt_id_quarto = new javax.swing.JTextField();
+        btn_limpar = new javax.swing.JButton();
+        txt_id_produto = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -143,53 +136,33 @@ public final class frm_quartos extends javax.swing.JFrame {
         btn_relatorio = new javax.swing.JButton();
         LB_registros = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setTitle("Cadastro de Produto");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel2.setText("Rooms Registration");
+        jLabel2.setText("Product Registration");
 
-        jLabel3.setText("Number");
+        jLabel3.setText("Product's name");
 
-        txt_numero.addActionListener(new java.awt.event.ActionListener() {
+        txt_nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_numeroActionPerformed(evt);
+                txt_nomeActionPerformed(evt);
             }
         });
 
-        jLabel11.setText("Walk");
+        jLabel11.setText("Unit of measurement");
 
-        CB_andar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7" }));
-        CB_andar.addActionListener(new java.awt.event.ActionListener() {
+        CB_unidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kg", "Unidade", "Litros", "Minutos", "Global", " ", " " }));
+        CB_unidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_andarActionPerformed(evt);
+                CB_unidadeActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Description");
-
-        jLabel6.setText("Characteristics");
 
         jLabel7.setText("Daily Value");
 
@@ -202,28 +175,6 @@ public final class frm_quartos extends javax.swing.JFrame {
         txt_descricao.setColumns(20);
         txt_descricao.setRows(5);
         jScrollPane1.setViewportView(txt_descricao);
-
-        txt_carac.setColumns(20);
-        txt_carac.setRows(5);
-        jScrollPane2.setViewportView(txt_carac);
-
-        jLabel8.setText("Room Type");
-
-        jLabel9.setText("state");
-
-        CB_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponível", "Ocupado", "Manutenção" }));
-        CB_estado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_estadoActionPerformed(evt);
-            }
-        });
-
-        CB_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Individual", "Familia", "Presidencial" }));
-        CB_tipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CB_tipoActionPerformed(evt);
-            }
-        });
 
         btn_novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/novo.GIF"))); // NOI18N
         btn_novo.setText("New");
@@ -241,11 +192,11 @@ public final class frm_quartos extends javax.swing.JFrame {
             }
         });
 
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/cancelar.png"))); // NOI18N
-        btn_cancelar.setText("Clean");
-        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+        btn_limpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/cancelar.png"))); // NOI18N
+        btn_limpar.setText("Clean");
+        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelarActionPerformed(evt);
+                btn_limparActionPerformed(evt);
             }
         });
 
@@ -258,46 +209,33 @@ public final class frm_quartos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CB_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CB_andar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CB_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txt_nome)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txt_id_quarto, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_id_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CB_unidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(102, 102, 102)
                 .addComponent(btn_novo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_salvar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_cancelar)
-                .addGap(78, 78, 78))
+                .addComponent(btn_limpar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,42 +243,31 @@ public final class frm_quartos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txt_id_quarto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_id_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11)
-                        .addComponent(CB_andar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CB_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(CB_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                    .addComponent(jLabel11)
+                    .addComponent(CB_unidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txt_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_novo)
                     .addComponent(btn_salvar)
-                    .addComponent(btn_cancelar)))
+                    .addComponent(btn_limpar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jLabel4.setText("List of Rooms");
+        jLabel4.setText("Products of  List");
 
         TB_lista.setBackground(new java.awt.Color(204, 204, 204));
         TB_lista.setModel(new javax.swing.table.DefaultTableModel(
@@ -401,7 +328,6 @@ public final class frm_quartos extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jLabel10)
@@ -415,15 +341,19 @@ public final class frm_quartos extends javax.swing.JFrame {
                 .addComponent(btn_relatorio)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_sair)
-                .addGap(0, 126, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LB_registros)
-                .addGap(63, 63, 63))
+                .addGap(0, 234, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LB_registros)
+                .addGap(93, 93, 93))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -438,11 +368,11 @@ public final class frm_quartos extends javax.swing.JFrame {
                     .addComponent(btn_sair)
                     .addComponent(btn_relatorio)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(LB_registros)
-                .addGap(40, 40, 40))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -459,164 +389,130 @@ public final class frm_quartos extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
-       ativar();
-       btn_salvar.setText("Salvar");
-       acao="Salvar";
-       btn_novo.enable(false);
-    }//GEN-LAST:event_btn_novoActionPerformed
+    private void TB_listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_listaMouseClicked
+        btn_salvar.setText("Editar");
+        ativar();
+        btn_apagar.setEnabled(true);
+        acao = "editar";
 
-    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
-        if(txt_numero.getText().length() == 0){
-            JOptionPane.showMessageDialog(rootPane, "Insira o numero do quarto");
-            txt_numero.requestFocus();
-            return;
-        }
+        int linha = TB_lista.rowAtPoint(evt.getPoint());
+        txt_id_produto.setText(TB_lista.getValueAt(linha, 0).toString());
+        txt_nome.setText(TB_lista.getValueAt(linha, 1).toString());
+        txt_descricao.setText(TB_lista.getValueAt(linha, 2).toString());
+        CB_unidade.setSelectedItem(TB_lista.getValueAt(linha, 3).toString());
+        txt_valor.setText(TB_lista.getValueAt(linha, 4).toString());
         
-        if(txt_descricao.getText().length() == 0){
-            JOptionPane.showMessageDialog(rootPane, "Insira uma descrição para o quarto");
-            txt_descricao.requestFocus();
-            return;
-        }
-        
-        if(txt_carac.getText().length() == 0){
-            JOptionPane.showMessageDialog(rootPane, "Insira uma careteristica para o quarto");
-            txt_carac.requestFocus();
-            return;
-        }
-        
-        if(txt_valor.getText().length() == 0){
-            JOptionPane.showMessageDialog(rootPane, "Insira o valor da diaria");
-            txt_valor.requestFocus();
-            return;
-        }
-        
-        vquartos dts = new vquartos();
-        fquartos func = new fquartos();
-        
-        dts.setNumero(txt_numero.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.
-        dts.setValordiaria(Double.parseDouble(txt_valor.getText()));
-        dts.setDescricao(txt_descricao.getText());
-        dts.setCaracteristicas(txt_carac.getText());
-        
-        int selecionado = CB_andar.getSelectedIndex();
-        dts.setAndar((String)  CB_andar.getItemAt(selecionado));
-        
-        selecionado = CB_estado.getSelectedIndex();
-        dts.setEstado((String) CB_estado.getItemAt(selecionado));
-        
-        selecionado = CB_tipo.getSelectedIndex();
-        dts.setTipoquarto((String) CB_tipo.getItemAt(selecionado));
-        
-        
-        //Verificar acção se é de guardar, editat ou de excluir
-        if(acao.equals("Salvar")){
-           if(func.inserir(dts)) {
-               JOptionPane.showMessageDialog(rootPane, "O quarto foi regristado com sucesso!");
-               mostrar("");     //mostra os dados salvo
-               desativar(); // desativa depois de salvar
-           }
-        }       
-        else if(acao.equals("Editar")){
-         dts.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
-         
-         if(func.editar(dts)) {
-               JOptionPane.showMessageDialog(rootPane, "O quarto foi editado com sucesso!");
-               mostrar("");     //mostra os dados 
-               desativar(); // desativa depois de editat
-           }
-        }
-        
-    }//GEN-LAST:event_btn_salvarActionPerformed
-
-    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
-        clean();
-    }//GEN-LAST:event_btn_cancelarActionPerformed
+    }//GEN-LAST:event_TB_listaMouseClicked
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         mostrar(txt_pesquisar.getText());
-        
+
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_apagarActionPerformed
-        if(!txt_id_quarto.getText().equals("")){
+        if(!txt_id_produto.getText().equals("")){
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
-                fquartos func = new fquartos();     //chamar clase fquarto
-                vquartos dts = new vquartos();      //chamar clase vquarto
-                dts.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
+                fprodutos func = new fprodutos();     //chamar clase fquarto
+                vprodutos dts = new vprodutos();      //chamar clase vquarto
+                dts.setIdproduto(Integer.parseInt(txt_id_produto.getText()));
                 func.deletar(dts);
                 mostrar("");
                 desativar();
             }
-             
-        } 
+
+        }
     }//GEN-LAST:event_btn_apagarActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
-     this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btn_sairActionPerformed
 
     private void btn_relatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_relatorioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_relatorioActionPerformed
 
-    private void txt_numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numeroActionPerformed
-     txt_numero.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
-     
-    }//GEN-LAST:event_txt_numeroActionPerformed
+    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
+        clean();
+    }//GEN-LAST:event_btn_limparActionPerformed
 
-    private void CB_andarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_andarActionPerformed
-        CB_andar.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
-    }//GEN-LAST:event_CB_andarActionPerformed
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        if(txt_nome.getText().length() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Insira o nome do produto");
+            txt_nome.requestFocus();
+            return;
+        }
+
+        if(txt_descricao.getText().length() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Insira uma descrição para o produto");
+            txt_descricao.requestFocus();
+            return;
+        }
+
+        if(txt_valor.getText().length() == 0){
+            JOptionPane.showMessageDialog(rootPane, "Insira o valor do produto");
+            txt_valor.requestFocus();
+            return;
+        }
+
+        vprodutos dts = new vprodutos();
+        fprodutos func = new fprodutos();
+
+        dts.setNome(txt_nome.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.
+        dts.setDescricao(txt_descricao.getText());
+        dts.setValor_produto(Double.parseDouble(txt_valor.getText()));
+
+        int selecionado = CB_unidade.getSelectedIndex();
+        dts.setUnidade_medida((String)  CB_unidade.getItemAt(selecionado));
+
+       
+        //Verificar acção se é de guardar
+        if(acao.equals("Salvar")){
+            if(func.inserir(dts)) {
+                JOptionPane.showMessageDialog(rootPane, "O produto foi regristado com sucesso!");
+                mostrar("");     //mostra os dados salvo
+                desativar(); // desativa depois de salvar
+            }
+        }
+        else if(acao.equals("editar")){
+            dts.setIdproduto(Integer.parseInt(txt_id_produto.getText()));
+
+            if(func.editar(dts)) {
+                JOptionPane.showMessageDialog(rootPane, "O produto foi editado com sucesso!");
+                mostrar("");     //mostra os dados
+                desativar(); // desativa depois de editat
+            }
+        }
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
+        ativar();
+        btn_salvar.setText("Salvar");
+        acao="Salvar";
+        //btn_novo.setEnabled(false);
+    }//GEN-LAST:event_btn_novoActionPerformed
 
     private void txt_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_valorActionPerformed
         txt_valor.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
     }//GEN-LAST:event_txt_valorActionPerformed
 
-    private void CB_estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_estadoActionPerformed
-        CB_estado.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
-    }//GEN-LAST:event_CB_estadoActionPerformed
+    private void CB_unidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_unidadeActionPerformed
+        CB_unidade.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+    }//GEN-LAST:event_CB_unidadeActionPerformed
 
-    private void CB_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CB_tipoActionPerformed
-        CB_tipo.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
-    }//GEN-LAST:event_CB_tipoActionPerformed
+    private void txt_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nomeActionPerformed
+        txt_nome.transferFocus();    //permite o usuario mudar do campo quando preciona atecla enter
+    }//GEN-LAST:event_txt_nomeActionPerformed
 
-    private void TB_listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_listaMouseClicked
-    btn_salvar.setText("Editar");
-    ativar();
-    btn_apagar.setEnabled(true);
-    acao = "Editar";
-    
-    int linha = TB_lista.rowAtPoint(evt.getPoint());
-    txt_id_quarto.setText(TB_lista.getValueAt(linha, 0).toString());
-    txt_numero.setText(TB_lista.getValueAt(linha, 1).toString());
-    CB_andar.setSelectedItem(TB_lista.getValueAt(linha, 2).toString());
-    txt_descricao.setText(TB_lista.getValueAt(linha, 3).toString());
-    txt_carac.setText(TB_lista.getValueAt(linha, 4).toString());
-    txt_valor.setText(TB_lista.getValueAt(linha, 5).toString());
-    CB_estado.setSelectedItem(TB_lista.getValueAt(linha, 6).toString());
-    CB_tipo.setSelectedItem(TB_lista.getValueAt(linha, 7).toString());
-        
-    }//GEN-LAST:event_TB_listaMouseClicked
-
-    void clean(){
-        txt_id_quarto.setText("");
-        txt_valor.setText("");
-        txt_descricao.setText("");
-        txt_carac.setText("");
-        txt_numero.setText("");
-    }
-    
     /**
      * @param args the command line arguments
      */
@@ -634,13 +530,13 @@ public final class frm_quartos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frm_quartos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frm_quartos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frm_quartos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frm_quartos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -648,20 +544,18 @@ public final class frm_quartos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_quartos().setVisible(true);
+                new FrmProdutos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CB_andar;
-    private javax.swing.JComboBox<String> CB_estado;
-    private javax.swing.JComboBox<String> CB_tipo;
+    private javax.swing.JComboBox<String> CB_unidade;
     private javax.swing.JLabel LB_registros;
     private javax.swing.JTable TB_lista;
     private javax.swing.JButton btn_apagar;
     private javax.swing.JButton btn_buscar;
-    private javax.swing.JButton btn_cancelar;
+    private javax.swing.JButton btn_limpar;
     private javax.swing.JButton btn_novo;
     private javax.swing.JButton btn_relatorio;
     private javax.swing.JButton btn_sair;
@@ -672,21 +566,14 @@ public final class frm_quartos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea txt_carac;
     private javax.swing.JTextArea txt_descricao;
-    private javax.swing.JTextField txt_id_quarto;
-    private javax.swing.JTextField txt_numero;
+    private javax.swing.JTextField txt_id_produto;
+    private javax.swing.JTextField txt_nome;
     private javax.swing.JTextField txt_pesquisar;
     private javax.swing.JTextField txt_valor;
     // End of variables declaration//GEN-END:variables

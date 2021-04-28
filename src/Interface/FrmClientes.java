@@ -7,9 +7,9 @@ package Interface;
 
 import Data.vclientes;
 import Data.vprodutos;
-import Logic.fclientes;
-import Logic.fprodutos;
-import Logic.fquartos;
+import Logic.Fclientes;
+import Logic.Fprodutos;
+import Logic.Fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -103,7 +103,7 @@ public class FrmClientes extends javax.swing.JInternalFrame {
      void mostrar(String buscar){
        try{
            DefaultTableModel modelo;
-           fclientes func=new fclientes();
+           Fclientes func=new Fclientes();
            modelo = func.mostrar(buscar);
            TB_lista.setModel(modelo);
            ocultar_coluna();
@@ -548,7 +548,7 @@ public class FrmClientes extends javax.swing.JInternalFrame {
         if(!txt_id_pessoa.getText().equals("")){
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
-                fclientes func = new fclientes();     //chamar clase fquarto
+                Fclientes func = new Fclientes();     //chamar clase fquarto
                 vclientes dts = new vclientes();      //chamar clase vquarto
                 dts.setId_pessoa(Integer.parseInt(txt_id_pessoa.getText()));
                 func.deletar(dts);
@@ -599,7 +599,7 @@ public class FrmClientes extends javax.swing.JInternalFrame {
         }
 
         vclientes dts = new vclientes();
-        fclientes func = new fclientes();
+        Fclientes func = new Fclientes();
 
         dts.setNome(txt_nome.getText());
         dts.setCodigo_cliente(txt_codigo_cliente.getText());

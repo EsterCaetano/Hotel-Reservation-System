@@ -218,7 +218,7 @@ public class ffuncionarios {
    sSQL = "select p.id_pessoa,p.nome_pessoa,p.nome_pai,p.nome_mae,"
                 + "f.acesso,f.login,f.password,f.estado from tb_pessoas p inner join tb_funcionarios f "
                 + "on p.id_pessoa=f.id_pessoa where f.login='" 
-                + login + "' and f.password='" + password + "' and f.estado='A'";
+                + login + "' and f.password='" + password + "' and f.estado='Enable'";
     
     try{
         Statement st = cn.createStatement();
@@ -243,5 +243,6 @@ public class ffuncionarios {
     }
     
     }
+    
     
 }

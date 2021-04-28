@@ -129,6 +129,11 @@ public class FrmMenu extends javax.swing.JFrame {
 
         menu_sair.setText("Exit");
         menu_sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menu_sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu_sairMouseClicked(evt);
+            }
+        });
         menuBar.add(menu_sair);
 
         setJMenuBar(menuBar);
@@ -179,6 +184,10 @@ public class FrmMenu extends javax.swing.JFrame {
         form.toFront();
         form.setVisible(true);
     }//GEN-LAST:event_s_menu_usuarioActionPerformed
+
+    private void menu_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_sairMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_menu_sairMouseClicked
 
     /**
      * @param args the command line arguments

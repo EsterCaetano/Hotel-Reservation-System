@@ -30,6 +30,9 @@ public class FrmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         menu = new javax.swing.JDesktopPane();
+        LB_nome = new javax.swing.JLabel();
+        LB_id = new javax.swing.JLabel();
+        LB_acesso = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menu_sistema = new javax.swing.JMenu();
         menu_arquivo = new javax.swing.JMenu();
@@ -49,6 +52,18 @@ public class FrmMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menu.setBackground(new java.awt.Color(255, 255, 255));
+
+        LB_nome.setText("jLabel1");
+        menu.add(LB_nome);
+        LB_nome.setBounds(80, 40, 41, 16);
+
+        LB_id.setText("jLabel1");
+        menu.add(LB_id);
+        LB_id.setBounds(20, 40, 41, 16);
+
+        LB_acesso.setText("jLabel1");
+        menu.add(LB_acesso);
+        LB_acesso.setBounds(140, 40, 41, 16);
 
         menu_sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/Inicio.png"))); // NOI18N
         menu_sistema.setMnemonic('f');
@@ -223,6 +238,9 @@ public class FrmMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel LB_acesso;
+    public static javax.swing.JLabel LB_id;
+    public static javax.swing.JLabel LB_nome;
     private javax.swing.JDesktopPane menu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menu_ajuda;

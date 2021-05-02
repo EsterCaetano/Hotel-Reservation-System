@@ -6,8 +6,8 @@
 package Interface;
 
 import Data.vprodutos;
-import Logic.Fprodutos;
-import Logic.Fquartos;
+import Logic.fprodutos;
+import Logic.fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -81,7 +81,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
      void mostrar(String buscar){
        try{
            DefaultTableModel modelo;
-           Fprodutos func=new Fprodutos();
+           fprodutos func=new fprodutos();
            modelo = func.mostrar(buscar);
            TB_lista.setModel(modelo);
            ocultar_coluna();
@@ -422,7 +422,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         if(!txt_id_produto.getText().equals("")){
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
-                Fprodutos func = new Fprodutos();     //chamar clase fquarto
+                fprodutos func = new fprodutos();     //chamar clase fquarto
                 vprodutos dts = new vprodutos();      //chamar clase vquarto
                 dts.setIdproduto(Integer.parseInt(txt_id_produto.getText()));
                 func.deletar(dts);
@@ -465,7 +465,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         }
 
         vprodutos dts = new vprodutos();
-        Fprodutos func = new Fprodutos();
+        fprodutos func = new fprodutos();
 
         dts.setNome(txt_nome.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.
         dts.setDescricao(txt_descricao.getText());

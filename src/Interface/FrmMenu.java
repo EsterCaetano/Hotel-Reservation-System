@@ -57,19 +57,19 @@ public class FrmMenu extends javax.swing.JFrame {
         LB_nome.setForeground(new java.awt.Color(255, 255, 255));
         LB_nome.setText("jLabel1");
         menu.add(LB_nome);
-        LB_nome.setBounds(1120, 20, 24, 10);
+        LB_nome.setBounds(1050, 20, 24, 10);
 
         LB_id.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         LB_id.setForeground(new java.awt.Color(255, 255, 255));
         LB_id.setText("jLabel1");
         menu.add(LB_id);
-        LB_id.setBounds(1060, 20, 24, 10);
+        LB_id.setBounds(1010, 20, 24, 10);
 
         LB_acesso.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         LB_acesso.setForeground(new java.awt.Color(255, 255, 255));
         LB_acesso.setText("jLabel1");
         menu.add(LB_acesso);
-        LB_acesso.setBounds(1180, 20, 24, 10);
+        LB_acesso.setBounds(1100, 20, 24, 10);
 
         menu_sistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/Inicio.png"))); // NOI18N
         menu_sistema.setMnemonic('f');
@@ -163,10 +163,7 @@ public class FrmMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 1289, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -5,8 +5,8 @@
  */
 package Interface;
 
-import Data.vprodutos;
-import Data.vquartos;
+import Data.Vprodutos;
+import Data.Vquartos;
 import Data.Vreservas;
 import Logic.fprodutos;
 import Logic.fquartos;
@@ -675,7 +675,7 @@ public class FrmReservas extends javax.swing.JInternalFrame {
                 
                 //ocupar o quarto
                 fquartos func3 = new fquartos();
-                vquartos dts3 = new vquartos();
+                Vquartos dts3 = new Vquartos();
                 
                 dts3.setIdquartos(Integer.parseInt(txt_id_quartos.getText()));
                 //  func3.ocupar(dts3);

@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Data.vprodutos;
+import Data.Vprodutos;
 import Logic.fprodutos;
 import Logic.fquartos;
 import javax.swing.JOptionPane;
@@ -423,7 +423,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
                 fprodutos func = new fprodutos();     //chamar clase fquarto
-                vprodutos dts = new vprodutos();      //chamar clase vquarto
+                Vprodutos dts = new Vprodutos();      //chamar clase vquarto
                 dts.setIdproduto(Integer.parseInt(txt_id_produto.getText()));
                 func.deletar(dts);
                 mostrar("");
@@ -464,7 +464,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
             return;
         }
 
-        vprodutos dts = new vprodutos();
+        Vprodutos dts = new Vprodutos();
         fprodutos func = new fprodutos();
 
         dts.setNome(txt_nome.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.

@@ -5,7 +5,7 @@
  */
 package Logic;
 
-import Data.vquartos;
+import Data.Vquartos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -56,8 +56,42 @@ public class fquartos {
     }
     }
     
+    public DefaultTableModel mostrarquartos(String buscar){
+        
+    DefaultTableModel modelo;
+    String[] titulos = {"ID", "Número", "Andar", "Descrição", "Caracteristicas", "Preço", "Estado", "Tipo de Quarto"};
+    String[] registro = new String[8];
+    totalregistros = 0;
+    
+    modelo = new DefaultTableModel(null, titulos);
+    sSQL = "select * from tb_quartos where andar like '%" + buscar + "%' and estado='Disponível' order by id_quartos";
+    
+    try{
+        Statement st = cn.createStatement();
+        ResultSet rs=st.executeQuery(sSQL);
+        while(rs.next()){
+           registro [0]=rs.getString("id_quartos");
+               registro [1]=rs.getString("numero");
+               registro [2]=rs.getString("andar");
+               registro [3]=rs.getString("descricao");
+               registro [4]=rs.getString("caracteristicas");
+               registro [5]=rs.getString("preco_diaria");
+               registro [6]=rs.getString("estado");
+               registro [7]=rs.getString("tipo_quarto"); 
+               
+               totalregistros = totalregistros +1;
+               modelo.addRow(registro);
+        }
+        return modelo;
+    }catch (Exception e){
+        JOptionPane.showConfirmDialog(null, e);
+        return null;
+    }
+    
+    }
+    
     //Metodo para inserir dados no BD
-    public boolean inserir (vquartos dts){
+    public boolean inserir (Vquartos dts){
         //estes nomes tem de ser igual ao de Base de dados
         sSQL = "insert into tb_quartos (numero, andar, descricao, caracteristicas, preco_diaria, estado, tipo_quarto)" +
                 "values(?,?,?,?,?,?,?)";
@@ -88,7 +122,7 @@ public class fquartos {
     
     
     //Metodo para editar dados no BD
-    public boolean editar (vquartos dts){
+    public boolean editar (Vquartos dts){
         
         sSQL="update tb_quartos set numero=?, andar=?, descricao=?, caracteristicas=?, preco_diaria=?, estado=?, tipo_quarto=?" +
                 "where id_quartos=?";
@@ -118,7 +152,7 @@ public class fquartos {
         }
     }
     
-    public boolean deletar (vquartos dts){
+    public boolean deletar (Vquartos dts){
         sSQL="delete from tb_quartos where id_quartos=?";
         
         try {

@@ -5,9 +5,9 @@
  */
 package Interface;
 import javax.swing.JPasswordField;
-import Data.vfuncionarios;
-import Data.vclientes;
-import Data.vprodutos;
+import Data.Vfuncionarios;
+import Data.Vclientes;
+import Data.Vprodutos;
 import Logic.ffuncionarios;
 import Logic.fclientes;
 import Logic.fprodutos;
@@ -652,7 +652,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
             return;
         }
 
-        vfuncionarios dts = new vfuncionarios();
+        Vfuncionarios dts = new Vfuncionarios();
         ffuncionarios func = new ffuncionarios();
 
         dts.setNome(txt_nome.getText());
@@ -754,7 +754,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
         if(!txt_id_pessoa.getText().equals("")){
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
-                vfuncionarios dts = new vfuncionarios();
+                Vfuncionarios dts = new Vfuncionarios();
                 ffuncionarios func = new ffuncionarios();
                 dts.setId_pessoa(Integer.parseInt(txt_id_pessoa.getText()));
                 func.deletar(dts);

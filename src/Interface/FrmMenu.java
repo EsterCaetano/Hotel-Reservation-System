@@ -107,6 +107,11 @@ public class FrmMenu extends javax.swing.JFrame {
 
         s_menu_reservas.setMnemonic('c');
         s_menu_reservas.setText("Reservas e Consumos");
+        s_menu_reservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                s_menu_reservasActionPerformed(evt);
+            }
+        });
         menu_reserva.add(s_menu_reservas);
 
         s_menu_clientes.setMnemonic('a');
@@ -206,6 +211,13 @@ public class FrmMenu extends javax.swing.JFrame {
     private void menu_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu_sairMouseClicked
         this.dispose();
     }//GEN-LAST:event_menu_sairMouseClicked
+
+    private void s_menu_reservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_menu_reservasActionPerformed
+         FrmReservas form = new FrmReservas();
+        menu.add(form);
+        form.toFront();
+        form.setVisible(true);
+    }//GEN-LAST:event_s_menu_reservasActionPerformed
 
     /**
      * @param args the command line arguments

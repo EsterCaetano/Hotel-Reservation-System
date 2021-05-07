@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Data.Vfuncionarios;
+import Data.vfuncionarios;
 import Logic.ffuncionarios;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -153,7 +153,7 @@ public class FrmLogin extends javax.swing.JFrame {
         try{
            DefaultTableModel modelo;
            ffuncionarios func = new ffuncionarios();
-           Vfuncionarios dts = new Vfuncionarios();
+           vfuncionarios dts = new vfuncionarios();
            
            dts.setLogin(txt_usuario.getText());
            dts.setPassword(txt_senha.getText());

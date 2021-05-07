@@ -5,8 +5,8 @@
  */
 package Interface;
 
-import Data.Vclientes;
-import Data.Vprodutos;
+import Data.vclientes;
+import Data.vprodutos;
 import Logic.fclientes;
 import Logic.fprodutos;
 import Logic.fquartos;
@@ -549,7 +549,7 @@ public class FrmClientes extends javax.swing.JInternalFrame {
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
                 fclientes func = new fclientes();     //chamar clase fquarto
-                Vclientes dts = new Vclientes();      //chamar clase vquarto
+                vclientes dts = new vclientes();      //chamar clase vquarto
                 dts.setId_pessoa(Integer.parseInt(txt_id_pessoa.getText()));
                 func.deletar(dts);
                 mostrar("");
@@ -598,7 +598,7 @@ public class FrmClientes extends javax.swing.JInternalFrame {
             return;
         }
 
-        Vclientes dts = new Vclientes();
+        vclientes dts = new vclientes();
         fclientes func = new fclientes();
 
         dts.setNome(txt_nome.getText());

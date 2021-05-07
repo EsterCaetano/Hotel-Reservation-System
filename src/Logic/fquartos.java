@@ -5,7 +5,7 @@
  */
 package Logic;
 
-import Data.Vquartos;
+import Data.vquartos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -91,7 +91,7 @@ public class fquartos {
     }
     
     //Metodo para inserir dados no BD
-    public boolean inserir (Vquartos dts){
+    public boolean inserir (vquartos dts){
         //estes nomes tem de ser igual ao de Base de dados
         sSQL = "insert into tb_quartos (numero, andar, descricao, caracteristicas, preco_diaria, estado, tipo_quarto)" +
                 "values(?,?,?,?,?,?,?)";
@@ -122,7 +122,7 @@ public class fquartos {
     
     
     //Metodo para editar dados no BD
-    public boolean editar (Vquartos dts){
+    public boolean editar (vquartos dts){
         
         sSQL="update tb_quartos set numero=?, andar=?, descricao=?, caracteristicas=?, preco_diaria=?, estado=?, tipo_quarto=?" +
                 "where id_quartos=?";
@@ -152,7 +152,7 @@ public class fquartos {
         }
     }
     
-    public boolean deletar (Vquartos dts){
+    public boolean deletar (vquartos dts){
         sSQL="delete from tb_quartos where id_quartos=?";
         
         try {

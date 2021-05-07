@@ -6,8 +6,8 @@
 package Logic;
 
 import Data.Vreservas;
-import Data.Vprodutos;
-import Data.Vquartos;
+import Data.vprodutos;
+import Data.vquartos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

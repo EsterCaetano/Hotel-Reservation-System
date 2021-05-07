@@ -739,9 +739,9 @@ public class FrmReservas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_busca_quartosActionPerformed
 
     private void btn_busca_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busca_clientesActionPerformed
-//        frm_buscarclientes form = new frm_buscarclientes();
-//        form.toFront();
-//        form.setVisible(true);
+        FrmBuscarclientes form = new FrmBuscarclientes();
+       form.toFront();
+       form.setVisible(true);
     }//GEN-LAST:event_btn_busca_clientesActionPerformed
 
     private void btn_consumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consumosActionPerformed

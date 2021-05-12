@@ -5,13 +5,13 @@
  */
 package Interface;
 import javax.swing.JPasswordField;
-import Data.vfuncionarios;
-import Data.vclientes;
-import Data.vprodutos;
-import Logic.ffuncionarios;
-import Logic.fclientes;
-import Logic.fprodutos;
-import Logic.fquartos;
+import Data.Vfuncionarios;
+import Data.Vclientes;
+import Data.Vprodutos;
+import Logic.Ffuncionarios;
+import Logic.Fclientes;
+import Logic.Fprodutos;
+import Logic.Fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -111,7 +111,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
         
         try{
             DefaultTableModel modelo;
-            ffuncionarios func=new ffuncionarios();
+            Ffuncionarios func=new Ffuncionarios();
             modelo = func.mostrar(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();
@@ -236,7 +236,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
         });
 
         btn_salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/salvar.png"))); // NOI18N
-        btn_salvar.setText("Salvar");
+        btn_salvar.setText("Save");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvarActionPerformed(evt);
@@ -297,7 +297,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel16.setText("Salario");
+        jLabel16.setText("Wage");
 
         txt_salario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,7 +305,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel17.setText("Acesso");
+        jLabel17.setText("Access");
 
         CB_acesso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Padrão", " " }));
         CB_acesso.addActionListener(new java.awt.event.ActionListener() {
@@ -322,7 +322,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel19.setText("Senha");
+        jLabel19.setText("Password");
 
         txt_senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -384,23 +384,23 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(232, 232, 232)
-                                        .addComponent(jLabel13))
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(208, 208, 208)
+                                        .addComponent(jLabel19))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(232, 232, 232)
+                                            .addComponent(jLabel13))
+                                        .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txt_email)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(CB_acesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(223, 223, 223)
-                                .addComponent(jLabel19)
-                                .addGap(34, 34, 34)
-                                .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(CB_acesso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
@@ -549,7 +549,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
             }
         });
 
-        LB_registros.setText("Registros");
+        LB_registros.setText("Records");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -652,8 +652,8 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
             return;
         }
 
-        vfuncionarios dts = new vfuncionarios();
-        ffuncionarios func = new ffuncionarios();
+        Vfuncionarios dts = new Vfuncionarios();
+        Ffuncionarios func = new Ffuncionarios();
 
         dts.setNome(txt_nome.getText());
         //dts.setCodigo_cliente(txt_codigo_cliente.getText());
@@ -754,8 +754,8 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
         if(!txt_id_pessoa.getText().equals("")){
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
-                vfuncionarios dts = new vfuncionarios();
-                ffuncionarios func = new ffuncionarios();
+                Vfuncionarios dts = new Vfuncionarios();
+                Ffuncionarios func = new Ffuncionarios();
                 dts.setId_pessoa(Integer.parseInt(txt_id_pessoa.getText()));
                 func.deletar(dts);
                 mostrar("");

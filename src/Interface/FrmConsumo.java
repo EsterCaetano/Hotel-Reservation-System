@@ -6,10 +6,10 @@
 package Interface;
 
 import Data.Vconsumo;
-import Data.vprodutos;
-import Logic.fconsumo;
-import Logic.fprodutos;
-import Logic.fquartos;
+import Data.Vprodutos;
+import Logic.Fconsumo;
+import Logic.Fprodutos;
+import Logic.Fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -94,7 +94,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
         
         try{
             DefaultTableModel modelo;
-            fconsumo func=new fconsumo();
+            Fconsumo func=new Fconsumo();
             modelo = func.mostrar(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();
@@ -152,14 +152,14 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Cadastro de Consumo");
+        setTitle("Consumption Registration");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Cadastro de Consumos");
+        jLabel2.setText("Consumption Registration");
 
-        jLabel3.setText("Cliente");
+        jLabel3.setText("Client");
 
         txt_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,7 +167,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setText("Estado");
+        jLabel4.setText("state");
 
         CB_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CONFIRMADO", "CANCELADO" }));
         CB_estado.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +176,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel7.setText("Valor");
+        jLabel7.setText("Value");
 
         txt_preco_venda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,15 +184,13 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/novo.GIF"))); // NOI18N
-        btn_novo.setText("Novo");
+        btn_novo.setText("New");
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_novoActionPerformed(evt);
             }
         });
 
-        btn_salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/salvar.png"))); // NOI18N
         btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,8 +198,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/cancelar.png"))); // NOI18N
-        btn_cancelar.setText("Limpar");
+        btn_cancelar.setText("Clean");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarActionPerformed(evt);
@@ -214,7 +211,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel5.setText("Produtos");
+        jLabel5.setText("Products");
 
         btn_busca_produto.setText("...");
         btn_busca_produto.addActionListener(new java.awt.event.ActionListener() {
@@ -317,7 +314,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
         );
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel10.setText("Lista de Consumo");
+        jLabel10.setText("Consumption List");
 
         TB_lista.setBackground(new java.awt.Color(204, 204, 204));
         TB_lista.setModel(new javax.swing.table.DefaultTableModel(
@@ -338,25 +335,23 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(TB_lista);
 
-        btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/cancelar.png"))); // NOI18N
-        btn_sair.setText("Sair");
+        btn_sair.setText("Exit");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sairActionPerformed(evt);
             }
         });
 
-        btn_apagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/salvar.png"))); // NOI18N
-        btn_apagar.setText("Apagar");
+        btn_apagar.setText("Delete");
         btn_apagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_apagarActionPerformed(evt);
             }
         });
 
-        LB_registros.setText("Registros");
+        LB_registros.setText("Records");
 
-        LB_consumo.setText("Consumo:");
+        LB_consumo.setText("Consumption:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -455,7 +450,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
         }
 
         Vconsumo dts = new Vconsumo();
-        fconsumo func = new fconsumo();
+        Fconsumo func = new Fconsumo();
 
         dts.setIdreserva(Integer.parseInt(txt_id_reservas.getText()));
         dts.setIdproduto(Integer.parseInt(txt_id_produtos.getText()));
@@ -515,7 +510,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir este registro", "Exluir", 2);
             if (confirmacao == 0){
                  Vconsumo dts = new Vconsumo();
-                 fconsumo func = new fconsumo();
+                 Fconsumo func = new Fconsumo();
                 dts.setIdconsumo(Integer.parseInt(txt_id_consumo.getText()));
                 func.deletar(dts);
                 mostrar(idreservas);
@@ -533,7 +528,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txt_quantidadeActionPerformed
 
     private void btn_busca_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busca_produtoActionPerformed
-        frm_buscar_produtos form = new frm_buscar_produtos();
+        FrmBuscarProdutos form = new FrmBuscarProdutos();
         form.toFront();
         form.setVisible(true);
     }//GEN-LAST:event_btn_busca_produtoActionPerformed

@@ -505,7 +505,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="LB_registros">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Registros"/>
+            <Property name="text" type="java.lang.String" value="Records"/>
           </Properties>
         </Component>
       </SubComponents>

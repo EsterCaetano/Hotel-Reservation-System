@@ -6,14 +6,14 @@
 package Interface;
 
 import Data.Vpago;
-import Data.vprodutos;
-import Data.vquartos;
+import Data.Vprodutos;
+import Data.Vquartos;
 import Data.Vreservas;
 import Logic.conexao;
 import Logic.Fconsumo;
-import Logic.fpago;
-import Logic.fprodutos;
-import Logic.fquartos;
+import Logic.Fpago;
+import Logic.Fprodutos;
+import Logic.Fquartos;
 import Logic.Freservas;
 import java.io.File;
 import java.sql.Connection;
@@ -140,7 +140,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
         
         try{
             DefaultTableModel modelo;
-            fpago func=new fpago();
+            Fpago func=new Fpago();
             modelo = func.mostrar(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();
@@ -621,7 +621,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
 
        
         Vpago dts = new Vpago();
-        fpago func = new fpago();
+        Fpago func = new Fpago();
 
         dts.setIdreserva(Integer.parseInt(txt_id_reserva.getText()));
         dts.setNum_comprovante(txt_numero_comp.getText());
@@ -660,8 +660,8 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
                 desativar();
                 
                  //Vacate the room
-                fquartos func2 = new fquartos();
-                vquartos dts2 = new vquartos();
+                Fquartos func2 = new Fquartos();
+                Vquartos dts2 = new Vquartos();
                 
                 dts2.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
                 func2.desocupar(dts2);
@@ -724,7 +724,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir este registro", "Exluir", 2);
 
             if (confirmacao==0) {
-                fpago func = new fpago ();
+                Fpago func = new Fpago ();
                 Vpago dts= new Vpago();
 
                 dts.setIdpagamento(Integer.parseInt(txt_id_pagamento.getText()));

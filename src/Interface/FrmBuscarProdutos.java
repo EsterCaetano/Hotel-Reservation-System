@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Logic.Fclientes;
+import Logic.Fprodutos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,28 +13,31 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Hugo
  */
-public class FrmBuscarclientes extends javax.swing.JFrame {
+public class FrmBuscarProdutos extends javax.swing.JFrame {
 
     /**
-     * Creates new form frm_buscarclientes
+     * Creates new form frm_buscar_produtos
      */
-    public FrmBuscarclientes() {
+    public FrmBuscarProdutos() {
         initComponents();
          mostrar("");
          this.setLocationRelativeTo(null);
     }
     
-     void ocultar_coluna(){
+    
+    void ocultar_coluna(){
         TB_lista.getColumnModel().getColumn(0).setMaxWidth(0);
         TB_lista.getColumnModel().getColumn(0).setMinWidth(0);
         TB_lista.getColumnModel().getColumn(0).setPreferredWidth(0);
     }
-     
-     void mostrar (String buscar){
+    
+    
+    
+    void mostrar (String buscar){
         
         try{
             DefaultTableModel modelo;
-            Fclientes func=new Fclientes();
+            Fprodutos func=new Fprodutos();
             modelo = func.mostrar(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();
@@ -100,7 +103,7 @@ public class FrmBuscarclientes extends javax.swing.JFrame {
             }
         });
 
-        LB_registros.setText("Records");
+        LB_registros.setText("Registros");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -138,20 +141,18 @@ public class FrmBuscarclientes extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(LB_registros)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -159,6 +160,7 @@ public class FrmBuscarclientes extends javax.swing.JFrame {
 
     private void TB_listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_listaMouseClicked
       
+
     }//GEN-LAST:event_TB_listaMouseClicked
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
@@ -166,18 +168,22 @@ public class FrmBuscarclientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void TB_listaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_listaMousePressed
-        if(evt.getClickCount()==2){
-         int linha = TB_lista.getSelectedRow();
-         String cod;
-         String valor;
-        
-         cod = TB_lista.getValueAt(linha, 0).toString();
-         valor = TB_lista.getValueAt(linha, 1).toString();
-         
-          FrmReservas.txt_id_cliente.setText(cod);
-          FrmReservas.txt_cliente.setText(valor);
-          this.dispose();
-        }
+      if(evt.getClickCount()==2){
+          int linha = TB_lista.getSelectedRow();
+          String cod;
+          String valor1;
+          String valor2;
+          
+          cod = TB_lista.getValueAt(linha, 0).toString();
+          valor1 = TB_lista.getValueAt(linha, 1).toString();
+          valor2 = TB_lista.getValueAt(linha, 4).toString();
+          
+          FrmConsumo.txt_id_produtos.setText(cod);
+          FrmConsumo.txt_produtos.setText(valor1);
+          FrmConsumo.txt_preco_venda.setText(valor2);
+          
+          this.setVisible(false);
+      }
     }//GEN-LAST:event_TB_listaMousePressed
 
     /**
@@ -197,13 +203,13 @@ public class FrmBuscarclientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmBuscarclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBuscarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmBuscarclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBuscarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmBuscarclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBuscarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmBuscarclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmBuscarProdutos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -211,7 +217,7 @@ public class FrmBuscarclientes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmBuscarclientes().setVisible(true);
+                new FrmBuscarProdutos().setVisible(true);
             }
         });
     }

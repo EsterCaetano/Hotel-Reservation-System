@@ -5,11 +5,11 @@
  */
 package Interface;
 
-import Data.vclientes;
-import Data.vprodutos;
-import Logic.fclientes;
-import Logic.fprodutos;
-import Logic.fquartos;
+import Data.Vclientes;
+import Data.Vprodutos;
+import Logic.Fclientes;
+import Logic.Fprodutos;
+import Logic.Fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -103,7 +103,7 @@ public class FrmClientes extends javax.swing.JInternalFrame {
      void mostrar(String buscar){
        try{
            DefaultTableModel modelo;
-           fclientes func=new fclientes();
+           Fclientes func=new Fclientes();
            modelo = func.mostrar(buscar);
            TB_lista.setModel(modelo);
            ocultar_coluna();
@@ -446,7 +446,7 @@ public class FrmClientes extends javax.swing.JInternalFrame {
             }
         });
 
-        LB_registros.setText("Registros");
+        LB_registros.setText("Records");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -548,8 +548,8 @@ public class FrmClientes extends javax.swing.JInternalFrame {
         if(!txt_id_pessoa.getText().equals("")){
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
-                fclientes func = new fclientes();     //chamar clase fquarto
-                vclientes dts = new vclientes();      //chamar clase vquarto
+                Fclientes func = new Fclientes();     //chamar clase fquarto
+                Vclientes dts = new Vclientes();      //chamar clase vquarto
                 dts.setId_pessoa(Integer.parseInt(txt_id_pessoa.getText()));
                 func.deletar(dts);
                 mostrar("");
@@ -598,8 +598,8 @@ public class FrmClientes extends javax.swing.JInternalFrame {
             return;
         }
 
-        vclientes dts = new vclientes();
-        fclientes func = new fclientes();
+        Vclientes dts = new Vclientes();
+        Fclientes func = new Fclientes();
 
         dts.setNome(txt_nome.getText());
         dts.setCodigo_cliente(txt_codigo_cliente.getText());

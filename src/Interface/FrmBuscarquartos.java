@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Logic.fquartos;
+import Logic.Fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,7 +34,7 @@ public class FrmBuscarquartos extends javax.swing.JFrame {
         
         try{
             DefaultTableModel modelo;
-            fquartos func=new fquartos();
+            Fquartos func=new Fquartos();
             modelo = func.mostrarquartos(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();
@@ -66,7 +66,7 @@ public class FrmBuscarquartos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel10.setText("Lista de Quartos");
+        jLabel10.setText("List of Rooms");
 
         TB_lista.setBackground(new java.awt.Color(204, 204, 204));
         TB_lista.setModel(new javax.swing.table.DefaultTableModel(
@@ -90,7 +90,7 @@ public class FrmBuscarquartos extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(TB_lista);
 
-        jLabel11.setText("Pesquisar");
+        jLabel11.setText("Search");
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/novo.GIF"))); // NOI18N
         btn_buscar.setText("Buscar");
@@ -100,7 +100,7 @@ public class FrmBuscarquartos extends javax.swing.JFrame {
             }
         });
 
-        LB_registros.setText("Registros");
+        LB_registros.setText("Records");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

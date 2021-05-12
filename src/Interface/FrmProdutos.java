@@ -5,9 +5,9 @@
  */
 package Interface;
 
-import Data.vprodutos;
-import Logic.fprodutos;
-import Logic.fquartos;
+import Data.Vprodutos;
+import Logic.Fprodutos;
+import Logic.Fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -81,7 +81,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
      void mostrar(String buscar){
        try{
            DefaultTableModel modelo;
-           fprodutos func=new fprodutos();
+           Fprodutos func=new Fprodutos();
            modelo = func.mostrar(buscar);
            TB_lista.setModel(modelo);
            ocultar_coluna();
@@ -140,7 +140,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Cadastro de Produto");
+        setTitle("Product Registration");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("Product Registration");
@@ -322,7 +322,7 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
             }
         });
 
-        LB_registros.setText("Registros");
+        LB_registros.setText("Records");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -422,8 +422,8 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
         if(!txt_id_produto.getText().equals("")){
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
-                fprodutos func = new fprodutos();     //chamar clase fquarto
-                vprodutos dts = new vprodutos();      //chamar clase vquarto
+                Fprodutos func = new Fprodutos();     //chamar clase fquarto
+                Vprodutos dts = new Vprodutos();      //chamar clase vquarto
                 dts.setIdproduto(Integer.parseInt(txt_id_produto.getText()));
                 func.deletar(dts);
                 mostrar("");
@@ -464,8 +464,8 @@ public class FrmProdutos extends javax.swing.JInternalFrame {
             return;
         }
 
-        vprodutos dts = new vprodutos();
-        fprodutos func = new fprodutos();
+        Vprodutos dts = new Vprodutos();
+        Fprodutos func = new Fprodutos();
 
         dts.setNome(txt_nome.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.
         dts.setDescricao(txt_descricao.getText());

@@ -5,11 +5,11 @@
  */
 package Interface;
 
-import Data.vprodutos;
-import Data.vquartos;
+import Data.Vprodutos;
+import Data.Vquartos;
 import Data.Vreservas;
-import Logic.fprodutos;
-import Logic.fquartos;
+import Logic.Fprodutos;
+import Logic.Fquartos;
 import Logic.Freservas;
 import java.sql.Date;
 import java.util.Calendar;
@@ -476,7 +476,7 @@ public class FrmReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        LB_registros.setText("Registros");
+        LB_registros.setText("Records");
 
         btn_consumos.setText("Consumption");
         btn_consumos.addActionListener(new java.awt.event.ActionListener() {
@@ -674,8 +674,8 @@ public class FrmReservas extends javax.swing.JInternalFrame {
                 desativar();
                 
                 //ocupar o quarto
-                fquartos func3 = new fquartos();
-                vquartos dts3 = new vquartos();
+                Fquartos func3 = new Fquartos();
+                Vquartos dts3 = new Vquartos();
                 
                 dts3.setIdquartos(Integer.parseInt(txt_id_quartos.getText()));
                 //  func3.ocupar(dts3);

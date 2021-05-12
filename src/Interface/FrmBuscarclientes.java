@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Logic.Fclientes;
+import Logic.fclientes;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,7 +34,7 @@ public class FrmBuscarclientes extends javax.swing.JFrame {
         
         try{
             DefaultTableModel modelo;
-            Fclientes func=new Fclientes();
+            fclientes func=new fclientes();
             modelo = func.mostrar(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();

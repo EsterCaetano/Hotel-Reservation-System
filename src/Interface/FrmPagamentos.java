@@ -10,10 +10,10 @@ import Data.Vprodutos;
 import Data.Vquartos;
 import Data.Vreservas;
 import Logic.conexao;
-import Logic.Fconsumo;
-import Logic.Fpago;
-import Logic.Fprodutos;
-import Logic.Fquartos;
+import Logic.fconsumo;
+import Logic.fpago;
+import Logic.fprodutos;
+import Logic.fquartos;
 import Logic.Freservas;
 import java.io.File;
 import java.sql.Connection;
@@ -47,7 +47,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
         txt_quarto.setText(quarto);
         txt_id_quarto.setText(id_quarto);
         txt_total_reserva.setText(Double.toString(total_reserva));
-        Fconsumo func = new Fconsumo();
+        fconsumo func = new fconsumo();
         func.mostrar(id_reserva);
         txt_total_pgto.setText(Double.toString(total_reserva + func.totalconsumo));
     }
@@ -140,14 +140,14 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
         
         try{
             DefaultTableModel modelo;
-            Fpago func=new Fpago();
+            fpago func=new fpago();
             modelo = func.mostrar(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();
             LB_registros.setText("Total Registros " + Integer.toString(func.totalregistros) );
             
              //Mostrar os dados dos consumos
-            Fconsumo func2 = new Fconsumo();
+            fconsumo func2 = new fconsumo();
             modelo= func2.mostrar(buscar);
             TB_lista_consumo.setModel(modelo);
             ocultar_coluna_consumo();
@@ -621,7 +621,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
 
        
         Vpago dts = new Vpago();
-        Fpago func = new Fpago();
+        fpago func = new fpago();
 
         dts.setIdreserva(Integer.parseInt(txt_id_reserva.getText()));
         dts.setNum_comprovante(txt_numero_comp.getText());
@@ -660,7 +660,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
                 desativar();
                 
                  //Vacate the room
-                Fquartos func2 = new Fquartos();
+                fquartos func2 = new fquartos();
                 Vquartos dts2 = new Vquartos();
                 
                 dts2.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
@@ -724,7 +724,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir este registro", "Exluir", 2);
 
             if (confirmacao==0) {
-                Fpago func = new Fpago ();
+                fpago func = new fpago ();
                 Vpago dts= new Vpago();
 
                 dts.setIdpagamento(Integer.parseInt(txt_id_pagamento.getText()));

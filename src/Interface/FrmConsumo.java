@@ -7,9 +7,9 @@ package Interface;
 
 import Data.Vconsumo;
 import Data.Vprodutos;
-import Logic.Fconsumo;
-import Logic.Fprodutos;
-import Logic.Fquartos;
+import Logic.fconsumo;
+import Logic.fprodutos;
+import Logic.fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -94,7 +94,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
         
         try{
             DefaultTableModel modelo;
-            Fconsumo func=new Fconsumo();
+            fconsumo func=new fconsumo();
             modelo = func.mostrar(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();
@@ -450,7 +450,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
         }
 
         Vconsumo dts = new Vconsumo();
-        Fconsumo func = new Fconsumo();
+        fconsumo func = new fconsumo();
 
         dts.setIdreserva(Integer.parseInt(txt_id_reservas.getText()));
         dts.setIdproduto(Integer.parseInt(txt_id_produtos.getText()));
@@ -510,7 +510,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir este registro", "Exluir", 2);
             if (confirmacao == 0){
                  Vconsumo dts = new Vconsumo();
-                 Fconsumo func = new Fconsumo();
+                 fconsumo func = new fconsumo();
                 dts.setIdconsumo(Integer.parseInt(txt_id_consumo.getText()));
                 func.deletar(dts);
                 mostrar(idreservas);

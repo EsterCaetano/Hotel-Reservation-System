@@ -8,8 +8,8 @@ package Interface;
 import Data.Vprodutos;
 import Data.Vquartos;
 import Data.Vreservas;
-import Logic.Fprodutos;
-import Logic.Fquartos;
+import Logic.fprodutos;
+import Logic.fquartos;
 import Logic.Freservas;
 import java.sql.Date;
 import java.util.Calendar;
@@ -674,7 +674,7 @@ public class FrmReservas extends javax.swing.JInternalFrame {
                 desativar();
                 
                 //ocupar o quarto
-                Fquartos func3 = new Fquartos();
+                fquartos func3 = new fquartos();
                 Vquartos dts3 = new Vquartos();
                 
                 dts3.setIdquartos(Integer.parseInt(txt_id_quartos.getText()));

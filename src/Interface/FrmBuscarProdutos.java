@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Logic.Fprodutos;
+import Logic.fprodutos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,7 +37,7 @@ public class FrmBuscarProdutos extends javax.swing.JFrame {
         
         try{
             DefaultTableModel modelo;
-            Fprodutos func=new Fprodutos();
+            fprodutos func=new fprodutos();
             modelo = func.mostrar(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();

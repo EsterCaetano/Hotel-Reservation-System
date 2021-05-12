@@ -6,7 +6,7 @@
 package Interface;
 
 import Data.Vfuncionarios;
-import Logic.Ffuncionarios;
+import Logic.ffuncionarios;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -152,7 +152,7 @@ public class FrmLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
            DefaultTableModel modelo;
-           Ffuncionarios func = new Ffuncionarios();
+           ffuncionarios func = new ffuncionarios();
            Vfuncionarios dts = new Vfuncionarios();
            
            dts.setLogin(txt_usuario.getText());

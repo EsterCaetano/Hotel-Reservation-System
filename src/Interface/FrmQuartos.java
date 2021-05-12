@@ -6,7 +6,7 @@
 package Interface;
 
 import Data.Vquartos;
-import Logic.Fquartos;
+import Logic.fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -88,7 +88,7 @@ public final class FrmQuartos extends javax.swing.JInternalFrame {
      void mostrar(String buscar){
        try{
            DefaultTableModel modelo;
-           Fquartos func=new Fquartos();
+           fquartos func=new fquartos();
            modelo = func.mostrar(buscar);
            TB_lista.setModel(modelo);
            ocultar_coluna();
@@ -505,7 +505,7 @@ public final class FrmQuartos extends javax.swing.JInternalFrame {
         }
         
         Vquartos dts = new Vquartos();
-        Fquartos func = new Fquartos();
+        fquartos func = new fquartos();
         
         dts.setNumero(txt_numero.getText()); //O gettext vai passar informações que foi trazida do getNumero da classe vquarto.
         dts.setValordiaria(Double.parseDouble(txt_valor.getText()));
@@ -555,7 +555,7 @@ public final class FrmQuartos extends javax.swing.JInternalFrame {
         if(!txt_id_quarto.getText().equals("")){
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
-                Fquartos func = new Fquartos();     //chamar clase fquarto
+                fquartos func = new fquartos();     //chamar clase fquarto
                 Vquartos dts = new Vquartos();      //chamar clase vquarto
                 dts.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
                 func.deletar(dts);

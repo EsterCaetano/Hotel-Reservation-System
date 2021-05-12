@@ -8,10 +8,10 @@ import javax.swing.JPasswordField;
 import Data.Vfuncionarios;
 import Data.Vclientes;
 import Data.Vprodutos;
-import Logic.Ffuncionarios;
-import Logic.Fclientes;
-import Logic.Fprodutos;
-import Logic.Fquartos;
+import Logic.ffuncionarios;
+import Logic.fclientes;
+import Logic.fprodutos;
+import Logic.fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -111,7 +111,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
         
         try{
             DefaultTableModel modelo;
-            Ffuncionarios func=new Ffuncionarios();
+            ffuncionarios func=new ffuncionarios();
             modelo = func.mostrar(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();
@@ -653,7 +653,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
         }
 
         Vfuncionarios dts = new Vfuncionarios();
-        Ffuncionarios func = new Ffuncionarios();
+        ffuncionarios func = new ffuncionarios();
 
         dts.setNome(txt_nome.getText());
         //dts.setCodigo_cliente(txt_codigo_cliente.getText());
@@ -755,7 +755,7 @@ public class FrmFuncionarios extends javax.swing.JInternalFrame {
             int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja escluir este registro?","Excluir", 2);
             if (confirmacao == 0){
                 Vfuncionarios dts = new Vfuncionarios();
-                Ffuncionarios func = new Ffuncionarios();
+                ffuncionarios func = new ffuncionarios();
                 dts.setId_pessoa(Integer.parseInt(txt_id_pessoa.getText()));
                 func.deletar(dts);
                 mostrar("");

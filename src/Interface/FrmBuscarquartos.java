@@ -5,7 +5,7 @@
  */
 package Interface;
 
-import Logic.Fquartos;
+import Logic.fquartos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,7 +34,7 @@ public class FrmBuscarquartos extends javax.swing.JFrame {
         
         try{
             DefaultTableModel modelo;
-            Fquartos func=new Fquartos();
+            fquartos func=new fquartos();
             modelo = func.mostrarquartos(buscar);
             TB_lista.setModel(modelo);
             ocultar_coluna();

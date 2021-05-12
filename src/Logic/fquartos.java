@@ -152,6 +152,54 @@ public class fquartos {
         }
     }
     
+     public boolean desocupar (vquartos dts){
+        
+        sSQL="update tb_quartos set  estado='Disponível'" +
+                "where id_quartos=?";
+        
+               
+        try {
+            PreparedStatement pst=cn.prepareStatement(sSQL);
+           
+            pst.setInt(1, dts.getIdquartos());
+            
+             int n=pst.executeUpdate();
+            if (n!=0){
+                return true;
+            }else{
+                return false;
+            }
+            
+        }catch (Exception e){
+             JOptionPane.showConfirmDialog(null, e);
+         return false;
+        }
+    }
+     
+     public boolean ocupar (vquartos dts){
+        
+        sSQL="update tb_quartos set  estado='Ocupado'" +
+                "where id_quartos=?";
+        
+               
+        try {
+            PreparedStatement pst=cn.prepareStatement(sSQL);
+           
+            pst.setInt(1, dts.getIdquartos());
+            
+             int n=pst.executeUpdate();
+            if (n!=0){
+                return true;
+            }else{
+                return false;
+            }
+            
+        }catch (Exception e){
+             JOptionPane.showConfirmDialog(null, e);
+         return false;
+        }
+    }
+    
     public boolean deletar (vquartos dts){
         sSQL="delete from tb_quartos where id_quartos=?";
         

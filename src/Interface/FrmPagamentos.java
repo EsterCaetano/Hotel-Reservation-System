@@ -6,8 +6,8 @@
 package Interface;
 
 import Data.Vpago;
-import Data.Vprodutos;
-import Data.Vquartos;
+import Data.vprodutos;
+import Data.vquartos;
 import Data.Vreservas;
 import Logic.conexao;
 import Logic.fconsumo;
@@ -661,7 +661,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
                 
                  //Vacate the room
                 fquartos func2 = new fquartos();
-                Vquartos dts2 = new Vquartos();
+                vquartos dts2 = new vquartos();
                 
                 dts2.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
                 func2.desocupar(dts2);

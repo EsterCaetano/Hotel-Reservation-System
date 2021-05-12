@@ -6,7 +6,7 @@
 package Interface;
 
 import Data.Vclientes;
-import Data.Vprodutos;
+import Data.vprodutos;
 import Logic.fclientes;
 import Logic.fprodutos;
 import Logic.fquartos;

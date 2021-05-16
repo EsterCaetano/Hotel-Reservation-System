@@ -66,8 +66,8 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
        
         txt_preco_venda.setText("");
         
-            txt_produtos.setText("");
-               txt_quantidade.setText("");
+        txt_produtos.setText("");
+        txt_quantidade.setText("");
     }
     
     void ativar(){
@@ -85,9 +85,8 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
           
         
         txt_preco_venda.setText("");
-         
-            txt_produtos.setText("");
-               txt_quantidade.setText("");
+        txt_produtos.setText("");
+        txt_quantidade.setText("");
     }
     
     void mostrar (String buscar){

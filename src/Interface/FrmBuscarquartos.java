@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Hugo
+ * @author ester
  */
 public class FrmBuscarquartos extends javax.swing.JFrame {
 

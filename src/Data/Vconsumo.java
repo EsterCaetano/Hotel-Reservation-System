@@ -7,7 +7,7 @@ package Data;
 
 /**
  *
- * @author Hugo
+ * @author ester
  */
 public class Vconsumo {
     private int idconsumo;

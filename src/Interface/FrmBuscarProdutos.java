@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Hugo
+ * @author ester
  */
 public class FrmBuscarProdutos extends javax.swing.JFrame {
 
@@ -170,9 +170,9 @@ public class FrmBuscarProdutos extends javax.swing.JFrame {
     private void TB_listaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TB_listaMousePressed
       if(evt.getClickCount()==2){
           int linha = TB_lista.getSelectedRow();
-          String cod;
-          String valor1;
-          String valor2;
+          String cod;       //Variavel Product ID
+          String valor1;    //Variavel do product name
+          String valor2;    //Variavel do Preçoa da venda 
           
           cod = TB_lista.getValueAt(linha, 0).toString();
           valor1 = TB_lista.getValueAt(linha, 1).toString();
@@ -182,7 +182,7 @@ public class FrmBuscarProdutos extends javax.swing.JFrame {
           FrmConsumo.txt_produtos.setText(valor1);
           FrmConsumo.txt_preco_venda.setText(valor2);
           
-          this.setVisible(false);
+          this.setVisible(false); //sem visibilidade
       }
     }//GEN-LAST:event_TB_listaMousePressed
 

@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Hugo
+ * @author ester
  */
 public class FrmBuscarclientes extends javax.swing.JFrame {
 

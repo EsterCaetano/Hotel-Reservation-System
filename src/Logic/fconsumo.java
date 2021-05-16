@@ -16,10 +16,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
- * @author Hugo
+ * @author ester
  */
 public class fconsumo {
-        private conexao mysql=new conexao();
+    private conexao mysql=new conexao();
     private Connection cn=mysql.conectar();
     private String sSQL="";
     public Integer totalregistros;
@@ -28,7 +28,7 @@ public class fconsumo {
     public DefaultTableModel mostrar(String buscar){
         
     DefaultTableModel modelo;
-    String[] titulos = {"ID consumo", "ID reserva", "ID produto", "Produto", "Quantidade", "Preco Venda", "Estado"};
+    String[] titulos = {"Consumption ID", "Reservation ID", "Product ID", "Product", "Quantity", "Sale Price", "Status"};
     String[] registro = new String[7];
     totalregistros = 0;
     totalconsumo = 0.0;

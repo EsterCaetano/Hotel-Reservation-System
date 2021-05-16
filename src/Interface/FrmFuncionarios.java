@@ -6,7 +6,7 @@
 package Interface;
 import javax.swing.JPasswordField;
 import Data.vfuncionarios;
-import Data.Vclientes;
+import Data.vclientes;
 import Data.vprodutos;
 import Logic.ffuncionarios;
 import Logic.fclientes;

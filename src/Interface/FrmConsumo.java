@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Hugo
+ * @author ester
  */
 public class FrmConsumo extends javax.swing.JInternalFrame {
     public static String clientes;
@@ -507,7 +507,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
 
     private void btn_apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_apagarActionPerformed
         if(!txt_id_consumo.getText().equals("")){
-            int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente excluir este registro", "Exluir", 2);
+            int confirmacao = JOptionPane.showConfirmDialog(rootPane, "Do you really want to delete this record", "Delete", 2);
             if (confirmacao == 0){
                  Vconsumo dts = new Vconsumo();
                  fconsumo func = new fconsumo();

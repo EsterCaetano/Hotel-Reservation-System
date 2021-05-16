@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Hugo
+ * @author ester
  */
 public class FrmReservas extends javax.swing.JInternalFrame {
 
@@ -86,16 +86,16 @@ public class FrmReservas extends javax.swing.JInternalFrame {
           txt_id_reserva.setVisible(false);
          CB_tipo.setEnabled(true);
         CB_estado.setEnabled(true);
-       // txt_id_quartos.setEnabled(true);
+        txt_id_quartos.setEnabled(true);
         txt_valor.setEnabled(true);
         txt_dt_entrada.setEnabled(true);
         txt_dt_reserva.setEnabled(true);
         txt_dt_saida.setEnabled(true);
-      //  txt_funcionario.setEnabled(true);
-       // txt_numero.setEnabled(true);
-       // txt_id_funcionario.setEnabled(true);
-       // txt_id_cliente.setEnabled(true);
-      //  txt_cliente.setEnabled(true);
+        txt_funcionario.setEnabled(true);
+        txt_numero.setEnabled(true);
+        txt_id_funcionario.setEnabled(true);
+        txt_id_cliente.setEnabled(true);
+        txt_cliente.setEnabled(true);
         
         
         btn_salvar.setEnabled(true);
@@ -678,7 +678,7 @@ public class FrmReservas extends javax.swing.JInternalFrame {
                 vquartos dts3 = new vquartos();
                 
                 dts3.setIdquartos(Integer.parseInt(txt_id_quartos.getText()));
-                //  func3.ocupar(dts3);
+                  func3.ocupar(dts3);
                 
             }
         }
@@ -739,37 +739,38 @@ public class FrmReservas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_busca_quartosActionPerformed
 
     private void btn_busca_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busca_clientesActionPerformed
-        FrmBuscarclientes form = new FrmBuscarclientes();
+       FrmBuscarclientes form = new FrmBuscarclientes();
        form.toFront();
        form.setVisible(true);
     }//GEN-LAST:event_btn_busca_clientesActionPerformed
 
     private void btn_consumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consumosActionPerformed
-//       int linha = TB_lista.getSelectedRow();
-//       frm_consumo.idreservas=TB_lista.getValueAt(linha, 0).toString();
-//       frm_consumo.clientes=TB_lista.getValueAt(linha, 4).toString();
-//       
-//        frm_consumo form = new frm_consumo();
-//        frm_menu.menu.add(form);
-//        form.toFront();
-//        form.setVisible(true);
+       int linha = TB_lista.getSelectedRow();
+       FrmConsumo.idreservas=TB_lista.getValueAt(linha, 0).toString();
+       FrmConsumo.clientes=TB_lista.getValueAt(linha, 4).toString();
+       
+        //Carregar o formulario de consumo no Menu principal 
+        FrmConsumo form = new FrmConsumo();
+        FrmMenu.menu.add(form);
+        form.toFront(); //carregar na frente
+        form.setVisible(true);
        
     }//GEN-LAST:event_btn_consumosActionPerformed
 
     private void btn_pagamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagamentosActionPerformed
         int linha = TB_lista.getSelectedRow();
         
-//        frm_pagamentos.id_reserva = TB_lista.getValueAt(linha, 0).toString();
-//        frm_pagamentos.cliente = TB_lista.getValueAt(linha, 4).toString();
-//        frm_pagamentos.total_reserva = Double.parseDouble(TB_lista.getValueAt(linha, 11).toString());
-//        
-//        frm_pagamentos.id_quarto = TB_lista.getValueAt(linha, 1).toString();
-//        frm_pagamentos.quarto = TB_lista.getValueAt(linha, 2).toString();
-//                
-//        frm_pagamentos form = new frm_pagamentos();
-//        frm_menu.menu.add(form);
-//        form.toFront();
-//        form.setVisible(true);
+        FrmPagamentos.id_reserva = TB_lista.getValueAt(linha, 0).toString();
+        FrmPagamentos.cliente = TB_lista.getValueAt(linha, 4).toString();
+        FrmPagamentos.total_reserva = Double.parseDouble(TB_lista.getValueAt(linha, 11).toString());
+        
+        FrmPagamentos.id_quarto = TB_lista.getValueAt(linha, 1).toString();
+        FrmPagamentos.quarto = TB_lista.getValueAt(linha, 2).toString();
+                
+        FrmPagamentos form = new FrmPagamentos();
+        FrmMenu.menu.add(form);
+        form.toFront();
+        form.setVisible(true);
     }//GEN-LAST:event_btn_pagamentosActionPerformed
 
     /**

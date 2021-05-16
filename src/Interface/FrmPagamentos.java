@@ -31,7 +31,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Hugo
+ * @author ester
  */
 public class FrmPagamentos extends javax.swing.JInternalFrame {
 
@@ -680,7 +680,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
             dts.setIdpagamento(Integer.parseInt(txt_id_pagamento.getText()));
 
             if(func.editar(dts)){
-                JOptionPane.showMessageDialog(rootPane, "O pagamento foi editado com sucesso!");
+                JOptionPane.showMessageDialog(rootPane, "The payment has been successfully edited!");
                 mostrar(id_reserva);
                 desativar();
             }

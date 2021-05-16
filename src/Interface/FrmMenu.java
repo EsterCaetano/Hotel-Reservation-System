@@ -259,7 +259,7 @@ public class FrmMenu extends javax.swing.JFrame {
     public static javax.swing.JLabel LB_acesso;
     public static javax.swing.JLabel LB_id;
     public static javax.swing.JLabel LB_nome;
-    private javax.swing.JDesktopPane menu;
+    public static javax.swing.JDesktopPane menu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menu_ajuda;
     public static javax.swing.JMenu menu_arquivo;

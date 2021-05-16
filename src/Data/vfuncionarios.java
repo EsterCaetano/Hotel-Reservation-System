@@ -9,18 +9,16 @@ package Data;
  *
  * @author ester
  */
-public class vfuncionarios extends vpessoas{
+public class vfuncionarios extends vpessoas {
     Double salario;
     String acesso;
     String login;
     String password;
     String estado;
 
-    //Construtor sem valor
     public vfuncionarios() {
     }
-    
-    //Construtor com valor
+
     public vfuncionarios(Double salario, String acesso, String login, String password, String estado) {
         this.salario = salario;
         this.acesso = acesso;
@@ -29,7 +27,6 @@ public class vfuncionarios extends vpessoas{
         this.estado = estado;
     }
 
-        
     public Double getSalario() {
         return salario;
     }
@@ -69,6 +66,7 @@ public class vfuncionarios extends vpessoas{
     public void setEstado(String estado) {
         this.estado = estado;
     }
-   
+    
+    
     
 }

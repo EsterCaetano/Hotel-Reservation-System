@@ -5,7 +5,7 @@
  */
 package Logic;
 
-import Data.Vclientes;
+import Data.vclientes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,7 +64,7 @@ public class fclientes {
     
     }
     
-    public boolean inserir (Vclientes dts){
+    public boolean inserir (vclientes dts){
         sSQL = "insert into tb_pessoas (nome_pessoa, nome_pai, nome_mae, tipo_documento, num_documento, endereco, telefone, email)" +
                 "values(?,?,?,?,?,?,?,?)";
         sSQL2 = "insert into tb_clientes (id_pessoa, codigo_cliente)" +
@@ -107,7 +107,7 @@ public class fclientes {
         }
     }
     
-    public boolean editar (Vclientes dts){
+    public boolean editar (vclientes dts){
         
         sSQL="update tb_pessoas set nome_pessoa=?, nome_pai=?, nome_mae=?, tipo_documento=?, num_documento=?, endereco=?, telefone=?, email=?" +
                 "where id_pessoa=?";
@@ -154,7 +154,7 @@ public class fclientes {
         }
     }
     
-    public boolean deletar (Vclientes dts){
+    public boolean deletar (vclientes dts){
         sSQL="delete from tb_clientes where id_pessoa=?";
         sSQL2="delete from tb_pessoas where id_pessoa=?";
          

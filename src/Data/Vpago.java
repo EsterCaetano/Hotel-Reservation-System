@@ -9,7 +9,7 @@ import java.sql.Date;
 
 /**
  *
- * @author Hugo
+ * @author ester
  */
 public class Vpago {
     private int idpagamento;

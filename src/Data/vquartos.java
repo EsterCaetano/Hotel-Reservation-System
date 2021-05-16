@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -10,33 +10,30 @@ package Data;
  * @author ester
  */
 public class vquartos {
-    //Variaveis
     private int idquartos;
     private String numero;
     private String andar;
     private String descricao;
     private String caracteristicas;
-    private Double valor_diaria;
+    private Double valordiaria;
     private String estado;
-    private String tipo_quarto;
+    private String tipoquarto;
 
-    
-  //Construtor
-    public vquartos(int idquartos, String numero, String andar, String descricao, String caracteristicas, Double valor_diaria, String estado, String tipo_quarto) {
+    public vquartos(int idquartos, String numero, String andar, String descricao, String caracteristicas, Double valordiaria, String estado, String tipoquarto) {
         this.idquartos = idquartos;
         this.numero = numero;
         this.andar = andar;
         this.descricao = descricao;
         this.caracteristicas = caracteristicas;
-        this.valor_diaria = valor_diaria;
+        this.valordiaria = valordiaria;
         this.estado = estado;
-        this.tipo_quarto = tipo_quarto;
+        this.tipoquarto = tipoquarto;
     }
 
     public vquartos() {
+        
     }
-    
-//Metodos
+
     public int getIdquartos() {
         return idquartos;
     }
@@ -78,11 +75,11 @@ public class vquartos {
     }
 
     public Double getValordiaria() {
-        return valor_diaria;
+        return valordiaria;
     }
 
-    public void setValordiaria(Double valor_diaria) {
-        this.valor_diaria = valor_diaria;
+    public void setValordiaria(Double valordiaria) {
+        this.valordiaria = valordiaria;
     }
 
     public String getEstado() {
@@ -94,13 +91,13 @@ public class vquartos {
     }
 
     public String getTipoquarto() {
-        return tipo_quarto;
+        return tipoquarto;
     }
 
-    public void setTipoquarto(String tipo_quarto) {
-        this.tipo_quarto = tipo_quarto;
+    public void setTipoquarto(String tipoquarto) {
+        this.tipoquarto = tipoquarto;
     }
-
-   
-   
+        
+    
+    
 }

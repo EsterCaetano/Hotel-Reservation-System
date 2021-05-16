@@ -219,7 +219,6 @@ public class FrmReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/salvar.png"))); // NOI18N
         btn_salvar.setText("Save");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +226,6 @@ public class FrmReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_cancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/cancelar.png"))); // NOI18N
         btn_cancelar.setText("Clean");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -452,7 +450,6 @@ public class FrmReservas extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Search");
 
-        btn_sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/cancelar.png"))); // NOI18N
         btn_sair.setText("Exit");
         btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,7 +457,6 @@ public class FrmReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_apagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/salvar.png"))); // NOI18N
         btn_apagar.setText("Erase");
         btn_apagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,7 +464,6 @@ public class FrmReservas extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/novo.GIF"))); // NOI18N
         btn_buscar.setText("Search");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

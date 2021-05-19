@@ -20,8 +20,8 @@ public class FrmBuscarclientes extends javax.swing.JFrame {
      */
     public FrmBuscarclientes() {
         initComponents();
-         mostrar("");
-         this.setLocationRelativeTo(null);
+        mostrar("");
+        this.setLocationRelativeTo(null);
     }
     
      void ocultar_coluna(){
@@ -176,7 +176,7 @@ public class FrmBuscarclientes extends javax.swing.JFrame {
          
           FrmReservas.txt_id_cliente.setText(cod);
           FrmReservas.txt_cliente.setText(valor);
-          this.dispose();
+          this.dispose(); //fechar o formulario
         }
     }//GEN-LAST:event_TB_listaMousePressed
 

@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmReservas extends javax.swing.JInternalFrame {
 
-    public static int idusuario;
+    public static int idusuario;    //variavel do funcionario que logou no sistema
     
     /**
      * Creates new form frm_produtos
@@ -36,21 +36,25 @@ public class FrmReservas extends javax.swing.JInternalFrame {
        
     }
     
-    
+    //ocultar as colunas onde esta os id dos quartos
     private String acao="salvar";
     void ocultar_coluna(){
+        //Ocultar ID Reservas
         TB_lista.getColumnModel().getColumn(0).setMaxWidth(0);
         TB_lista.getColumnModel().getColumn(0).setMinWidth(0);
         TB_lista.getColumnModel().getColumn(0).setPreferredWidth(0);
         
+        //Ocultar ID Quartos
         TB_lista.getColumnModel().getColumn(1).setMaxWidth(0);
         TB_lista.getColumnModel().getColumn(1).setMinWidth(0);
         TB_lista.getColumnModel().getColumn(1).setPreferredWidth(0);
         
+        //Ocultar ID cliente
         TB_lista.getColumnModel().getColumn(3).setMaxWidth(0);
         TB_lista.getColumnModel().getColumn(3).setMinWidth(0);
         TB_lista.getColumnModel().getColumn(3).setPreferredWidth(0);
         
+        //Ocultar ID funcionario
         TB_lista.getColumnModel().getColumn(5).setMaxWidth(0);
         TB_lista.getColumnModel().getColumn(5).setMinWidth(0);
         TB_lista.getColumnModel().getColumn(5).setPreferredWidth(0);
@@ -83,19 +87,19 @@ public class FrmReservas extends javax.swing.JInternalFrame {
     }
     
     void ativar(){
-          txt_id_reserva.setVisible(false);
-         CB_tipo.setEnabled(true);
+        txt_id_reserva.setVisible(false);
+        CB_tipo.setEnabled(true);
         CB_estado.setEnabled(true);
-        txt_id_quartos.setEnabled(true);
+        //txt_id_quartos.setEnabled(true);
         txt_valor.setEnabled(true);
         txt_dt_entrada.setEnabled(true);
         txt_dt_reserva.setEnabled(true);
         txt_dt_saida.setEnabled(true);
-        txt_funcionario.setEnabled(true);
-        txt_numero.setEnabled(true);
-        txt_id_funcionario.setEnabled(true);
-        txt_id_cliente.setEnabled(true);
-        txt_cliente.setEnabled(true);
+//        txt_funcionario.setEnabled(true);
+//        txt_numero.setEnabled(true);
+//        txt_id_funcionario.setEnabled(true);
+//        txt_id_cliente.setEnabled(true);
+//        txt_cliente.setEnabled(true);
         
         
         btn_salvar.setEnabled(true);
@@ -316,19 +320,6 @@ public class FrmReservas extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel3))
-                                .addGap(52, 52, 52)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_cliente)
-                                    .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btn_busca_quartos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_busca_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel9))
@@ -336,9 +327,8 @@ public class FrmReservas extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(20, 20, 20)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(CB_tipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txt_valor)
-                                            .addComponent(txt_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(CB_tipo, 0, 174, Short.MAX_VALUE)
+                                            .addComponent(txt_valor)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(txt_dt_reserva, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -346,7 +336,23 @@ public class FrmReservas extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txt_dt_saida, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txt_dt_entrada, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                            .addComponent(txt_dt_entrada, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel8))
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_cliente)
+                                            .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(btn_busca_quartos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btn_busca_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -624,6 +630,18 @@ public class FrmReservas extends javax.swing.JInternalFrame {
             txt_id_quartos.requestFocus();
             return;
         }
+        
+        if (txt_valor.getText().length() == 0){    //
+            JOptionPane.showMessageDialog(rootPane, "Insira o valor da reserva");
+            txt_id_reserva.requestFocus();
+            return;
+        }
+        
+//        if (txt_funcionario.getText().length() == 0){    //
+//            JOptionPane.showMessageDialog(rootPane, "Insira o nome do funcionario");
+//            txt_id_funcionario.requestFocus();
+//            return;
+//        }
 
      
 
@@ -635,6 +653,7 @@ public class FrmReservas extends javax.swing.JInternalFrame {
         dts.setIdfuncionario(Integer.parseInt(txt_id_funcionario.getText()));
         
         int selecionado = CB_tipo.getSelectedIndex();
+        //Gravar o valor selecionado pelo CB_tipo
         dts.setTipo_reserva((String)CB_tipo.getItemAt(selecionado));
         
         Calendar cal;
@@ -729,8 +748,8 @@ public class FrmReservas extends javax.swing.JInternalFrame {
 
     private void btn_busca_quartosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busca_quartosActionPerformed
        FrmBuscarquartos form = new FrmBuscarquartos();
-        form.toFront();
-        form.setVisible(true);
+       form.toFront();
+       form.setVisible(true);
     }//GEN-LAST:event_btn_busca_quartosActionPerformed
 
     private void btn_busca_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busca_clientesActionPerformed

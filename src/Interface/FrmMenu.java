@@ -16,7 +16,7 @@ public class FrmMenu extends javax.swing.JFrame {
      */
     public FrmMenu() {
         initComponents();
-        this.setExtendedState(FrmMenu.MAXIMIZED_BOTH);
+        //this.setExtendedState(FrmMenu.MAXIMIZED_BOTH);
         this.setTitle("Sistema de Reservas para Hotéis - Pousada de Juventude");
     }
 
@@ -53,20 +53,20 @@ public class FrmMenu extends javax.swing.JFrame {
 
         menu.setBackground(new java.awt.Color(255, 255, 255));
 
+        LB_nome.setBackground(new java.awt.Color(204, 204, 204));
         LB_nome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        LB_nome.setForeground(new java.awt.Color(255, 255, 255));
         LB_nome.setText("jLabel1");
         menu.add(LB_nome);
         LB_nome.setBounds(1024, 20, 140, 20);
 
+        LB_id.setBackground(new java.awt.Color(204, 204, 204));
         LB_id.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        LB_id.setForeground(new java.awt.Color(255, 255, 255));
         LB_id.setText("jLabel1");
         menu.add(LB_id);
         LB_id.setBounds(994, 20, 20, 20);
 
+        LB_acesso.setBackground(new java.awt.Color(204, 204, 204));
         LB_acesso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        LB_acesso.setForeground(new java.awt.Color(255, 255, 255));
         LB_acesso.setText("jLabel1");
         menu.add(LB_acesso);
         LB_acesso.setBounds(1184, 20, 90, 20);
@@ -216,10 +216,14 @@ public class FrmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_sairMouseClicked
 
     private void s_menu_reservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_s_menu_reservasActionPerformed
-         FrmReservas form = new FrmReservas();
+        FrmReservas form = new FrmReservas();
         menu.add(form);
         form.toFront();
         form.setVisible(true);
+        
+        //chamar o nome funcionario que fez login no campo funcionario na tabela reserva
+        FrmReservas.txt_id_funcionario.setText(LB_id.getText());
+        FrmReservas.txt_funcionario.setText(LB_nome.getText());
     }//GEN-LAST:event_s_menu_reservasActionPerformed
 
     /**

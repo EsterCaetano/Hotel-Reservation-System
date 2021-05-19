@@ -59,7 +59,7 @@ public class fquartos {
     public DefaultTableModel mostrarquartos(String buscar){
         
     DefaultTableModel modelo;
-    String[] titulos = {"ID", "Número", "Andar", "Descrição", "Caracteristicas", "Preço", "Estado", "Tipo de Quarto"};
+    String[] titulos = {"ID", "Number", "Walk", "Descrition", "characteristics", "Price_day", "State", "Room Type"};
     String[] registro = new String[8];
     totalregistros = 0;
     

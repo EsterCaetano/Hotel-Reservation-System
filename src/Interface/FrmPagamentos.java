@@ -95,13 +95,13 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
         txt_id_pagamento.setVisible(false);
         txt_id_reserva.setVisible(false);
         txt_id_quarto.setVisible(false);
-        CB_tipo_comp.setEnabled(false);
+        CB_tipo_comp.setEnabled(true);
         txt_cliente.setEnabled(false);
         txt_total_pgto.setEnabled(false);
         txt_quarto.setEnabled(false);
         txt_total_reserva.setEnabled(false);
-        txt_data_emissao.setEnabled(false);
-        txt_data_pgto.setEnabled(false);
+        txt_data_emissao.setEnabled(true);
+        txt_data_pgto.setEnabled(true);
         txt_numero_comp.setEnabled(false);
         txt_taxa.setEnabled(false);
         

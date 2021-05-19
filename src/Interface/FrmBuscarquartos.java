@@ -20,8 +20,8 @@ public class FrmBuscarquartos extends javax.swing.JFrame {
      */
     public FrmBuscarquartos() {
         initComponents();
-         mostrar("");
-         this.setLocationRelativeTo(null);
+        mostrar("");
+        this.setLocationRelativeTo(null);
     }
     
      void ocultar_coluna(){
@@ -92,7 +92,6 @@ public class FrmBuscarquartos extends javax.swing.JFrame {
 
         jLabel11.setText("Search");
 
-        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Files/images/icones/novo.GIF"))); // NOI18N
         btn_buscar.setText("Buscar");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

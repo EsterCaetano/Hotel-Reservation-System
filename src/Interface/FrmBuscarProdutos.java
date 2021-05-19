@@ -19,7 +19,7 @@ public class FrmBuscarProdutos extends javax.swing.JFrame {
      * Creates new form frm_buscar_produtos
      */
     public FrmBuscarProdutos() {
-        initComponents();
+         initComponents();
          mostrar("");
          this.setLocationRelativeTo(null);
     }
@@ -178,7 +178,7 @@ public class FrmBuscarProdutos extends javax.swing.JFrame {
           valor1 = TB_lista.getValueAt(linha, 1).toString();
           valor2 = TB_lista.getValueAt(linha, 4).toString();
           
-          FrmConsumo.txt_id_produtos.setText(cod);
+          FrmReservas.txt_id_quartos.setText(cod);
           FrmConsumo.txt_produtos.setText(valor1);
           FrmConsumo.txt_preco_venda.setText(valor2);
           

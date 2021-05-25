@@ -25,7 +25,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
      */
     public FrmConsumo() {
         initComponents();
-         desativar();
+        desativar();
         mostrar(idreservas);
        txt_cliente.setText(clientes);
        txt_id_reservas.setText(idreservas);
@@ -98,7 +98,7 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
             TB_lista.setModel(modelo);
             ocultar_coluna();
             LB_registros.setText("Total Registros " + Integer.toString(func.totalregistros) );
-            LB_consumo.setText("Consumo Total € " + func.totalconsumo);            
+            LB_consumo.setText("Consumo Total R$ " + func.totalconsumo);            
         }catch (Exception e){
             JOptionPane.showConfirmDialog(null, e);
         }

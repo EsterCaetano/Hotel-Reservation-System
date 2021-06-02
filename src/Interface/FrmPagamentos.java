@@ -40,7 +40,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
      */
     public FrmPagamentos() {
         initComponents();
-         desativar();
+        desativar();
         mostrar(id_reserva);
         txt_id_reserva.setText(id_reserva);
         txt_cliente.setText(cliente);
@@ -115,7 +115,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
     }
     
     void ativar(){
-         txt_id_pagamento.setVisible(false);
+        txt_id_pagamento.setVisible(false);
         txt_id_reserva.setVisible(false);
         txt_id_quarto.setVisible(false);
         CB_tipo_comp.setEnabled(true);
@@ -153,7 +153,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
             ocultar_coluna_consumo();
             
             LB_registros_consumos.setText("Total Consumos " + func2.totalregistros);
-            LB_total_consumo.setText("Consumo Total: R$ " + func2.totalconsumo );
+            LB_total_consumo.setText("Consumo Total: € " + func2.totalconsumo );
             
             
             
@@ -659,15 +659,14 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
                 mostrar(id_reserva);
                 desativar();
                 
-                 //Vacate the room
+                 //Desocupar the room depois do pagamento
                 fquartos func2 = new fquartos();
                 vquartos dts2 = new vquartos();
                 
                 dts2.setIdquartos(Integer.parseInt(txt_id_quarto.getText()));
                 func2.desocupar(dts2);
                 
-                //Cancelar ou Pagar a reserva
-                
+                //Verificar se o estado esta Cancelado ou Pagar a reserva
                 Freservas func3 = new Freservas();
                 Vreservas dts3 = new Vreservas();
                 

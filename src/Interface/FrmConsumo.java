@@ -519,7 +519,9 @@ public class FrmConsumo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btn_apagarActionPerformed
 
     private void txt_produtosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_produtosActionPerformed
-        // TODO add your handling code here:
+       FrmProdutos form = new FrmProdutos();
+        form.toFront();
+        form.setVisible(true);
     }//GEN-LAST:event_txt_produtosActionPerformed
 
     private void txt_quantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_quantidadeActionPerformed

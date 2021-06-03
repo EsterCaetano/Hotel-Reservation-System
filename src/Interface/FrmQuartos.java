@@ -6,9 +6,19 @@
 package Interface;
 
 import Data.vquartos;
+import Logic.conexao;
 import Logic.fquartos;
+import java.io.File;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -570,8 +580,23 @@ public final class FrmQuartos extends javax.swing.JInternalFrame {
      this.dispose();
     }//GEN-LAST:event_btn_sairActionPerformed
 
+    private Connection connection=new conexao().conectar();
     private void btn_relatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_relatorioActionPerformed
-        // TODO add your handling code here:
+        Map p=new HashMap();
+        JasperReport relatorio;
+        JasperPrint impressao;
+        
+        try {
+            relatorio = JasperCompileManager.compileReport(new File("").getAbsolutePath()+
+                    "/src/Relatorios/rel_quartos.jrxml");
+            impressao = JasperFillManager.fillReport(relatorio, p, connection);
+            
+            JasperViewer view = new JasperViewer(impressao, false);
+            view.setTitle("Relatório de Quartos");
+            view.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btn_relatorioActionPerformed
 
     private void txt_numeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_numeroActionPerformed

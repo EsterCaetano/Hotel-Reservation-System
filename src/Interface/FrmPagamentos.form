@@ -448,8 +448,8 @@
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="btn_nota" min="-2" pref="109" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="btn_nota" min="-2" pref="127" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                           <Component id="btn_apagar1" min="-2" pref="88" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn_sair1" min="-2" pref="87" max="-2" attributes="0"/>
@@ -544,7 +544,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_nota">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nota Fiscal"/>
+            <Property name="text" type="java.lang.String" value="Comprovativo"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_notaActionPerformed"/>

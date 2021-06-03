@@ -23,11 +23,11 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-//import net.sf.jasperreports.engine.JasperCompileManager;
-//import net.sf.jasperreports.engine.JasperFillManager;
-//import net.sf.jasperreports.engine.JasperPrint;
-//import net.sf.jasperreports.engine.JasperReport;
-//import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -524,7 +524,7 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
 
         LB_registros.setText("Records");
 
-        btn_nota.setText("Nota Fiscal");
+        btn_nota.setText("Comprovativo");
         btn_nota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_notaActionPerformed(evt);
@@ -540,8 +540,8 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(btn_nota, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(180, 180, 180)
+                        .addComponent(btn_nota, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(162, 162, 162)
                         .addComponent(btn_apagar1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_sair1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -763,16 +763,16 @@ public class FrmPagamentos extends javax.swing.JInternalFrame {
         if(!txt_id_pagamento.getText().equals("")){ 
         Map p=new HashMap();
          p.put("id_pagamento", txt_id_pagamento.getText());
-      //JasperReport relatorio;
-      //JasperPrint impressao;
+      JasperReport relatorio;
+      JasperPrint impressao;
       
       try{
-          //relatorio = JasperCompileManager.compileReport(new File("").getAbsolutePath()+
-        //  "/src/Relatorios/rel_nota.jrxml");
-         // impressao = JasperFillManager.fillReport(relatorio, p, connection);
-          //JasperViewer view = new JasperViewer(impressao, false);
-          //view.setTitle("Nota Fiscal");
-          //view.setVisible(true);
+          relatorio = JasperCompileManager.compileReport(new File("").getAbsolutePath()+
+          "/src/Relatorios/rel_nota.jrxml");
+          impressao = JasperFillManager.fillReport(relatorio, p, connection);
+          JasperViewer view = new JasperViewer(impressao, false);
+          view.setTitle("Comprovativo");
+          view.setVisible(true);
       }catch(Exception e){
           e.printStackTrace();
       }
